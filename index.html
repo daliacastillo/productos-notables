@@ -1,0 +1,1149 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Productos notables · demostración geométrica interactiva</title>
+<meta name="description" content="Actividad interactiva para demostrar geométricamente los productos notables: cuadrado de un binomio, binomios conjugados, producto de binomios con término común y cubo de un binomio.">
+
+<!-- ===== Metadatos para la citación ===== -->
+<meta name="author" content="Dalia Imelda Castillo Márquez">
+<meta name="citation_title" content="Productos notables: la demostración que se ve">
+<meta name="citation_author" content="Castillo Márquez, Dalia Imelda">
+<meta name="citation_author_orcid" content="https://orcid.org/0000-0002-5890-0437">
+<meta name="citation_author_institution" content="Universidad Autónoma de Nayarit, Unidad Académica de Ciencias Básicas e Ingenierías">
+<meta name="citation_publication_date" content="2026/10">
+<meta name="citation_language" content="es">
+<meta name="DC.title" content="Productos notables: la demostración que se ve">
+<meta name="DC.creator" content="Castillo Márquez, Dalia Imelda">
+<meta name="DC.publisher" content="Universidad Autónoma de Nayarit">
+<meta name="DC.date" content="2026-10">
+<meta name="DC.type" content="InteractiveResource">
+<meta name="DC.language" content="es">
+<meta name="DC.rights" content="CC BY-NC-SA 4.0">
+<link rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LearningResource",
+  "name": "Productos notables: la demostración que se ve",
+  "alternateName": "Productos notables · demostración geométrica interactiva",
+  "description": "Actividad web interactiva que demuestra geométricamente los productos notables: cuadrado de una suma, cuadrado de una diferencia, binomios conjugados, producto de binomios con término común y cubo de un binomio, con una serie de práctica autoevaluable.",
+  "inLanguage": "es",
+  "learningResourceType": ["Actividad interactiva", "Demostración geométrica", "Autoevaluación"],
+  "educationalLevel": "Licenciatura",
+  "teaches": "Productos notables y su demostración geométrica",
+  "educationalUse": ["Instrucción", "Práctica", "Tarea"],
+  "audience": { "@type": "EducationalAudience", "educationalRole": ["student", "teacher"] },
+  "version": "1.0",
+  "datePublished": "2026-10",
+  "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+  "isAccessibleForFree": true,
+  "creativeWorkStatus": "Published",
+  "author": {
+    "@type": "Person",
+    "name": "Dalia Imelda Castillo Márquez",
+    "identifier": "https://orcid.org/0000-0002-5890-0437",
+    "affiliation": {
+      "@type": "CollegeOrUniversity",
+      "name": "Universidad Autónoma de Nayarit",
+      "department": "Unidad Académica de Ciencias Básicas e Ingenierías"
+    }
+  },
+  "publisher": { "@type": "CollegeOrUniversity", "name": "Universidad Autónoma de Nayarit" }
+}
+</script>
+<style>
+:root{
+  --bg:#F7F8FC; --surface:#FFFFFF; --ink:#1B1E28; --muted:#5C6478;
+  --line:#DDE3EE; --soft:#EEF2F9;
+  --brand:#5B4FD6; --brand-2:#1C7293;
+  --c-a2:#5B5BD6; --c-ab:#F2A33C; --c-b2:#12A594; --c-ab2:#D6409F;
+  --c-neg:#E5484D; --c-pos:#2E9E63; --c-x2:#5B5BD6;
+  --shadow:0 1px 2px rgba(20,25,45,.06), 0 8px 24px rgba(20,25,45,.07);
+  --r:14px;
+}
+:root[data-theme="dark"]{
+  --bg:#101218; --surface:#191C25; --ink:#EDEFF5; --muted:#A2AAC0;
+  --line:#2C313F; --soft:#20242F;
+  --brand:#9B8CFF; --brand-2:#5BC0DE;
+  --c-a2:#8A86F0; --c-ab:#F5B860; --c-b2:#3FC9B4; --c-ab2:#EE6FBE;
+  --c-neg:#FF6B6F; --c-pos:#56C98A; --c-x2:#8A86F0;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 28px rgba(0,0,0,.35);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#101218; --surface:#191C25; --ink:#EDEFF5; --muted:#A2AAC0;
+    --line:#2C313F; --soft:#20242F;
+    --brand:#9B8CFF; --brand-2:#5BC0DE;
+    --c-a2:#8A86F0; --c-ab:#F5B860; --c-b2:#3FC9B4; --c-ab2:#EE6FBE;
+    --c-neg:#FF6B6F; --c-pos:#56C98A; --c-x2:#8A86F0;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 28px rgba(0,0,0,.35);
+  }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font:16px/1.55 "Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+.wrap{max-width:1180px; margin:0 auto; padding-inline:16px}
+
+/* ---------- encabezado ---------- */
+header.top{
+  background:linear-gradient(135deg,#2B2A6E 0%, #4B3FA8 45%, #1C7293 100%);
+  color:#fff; padding-block:30px 26px;
+}
+:root[data-theme="dark"] header.top{background:linear-gradient(135deg,#1A1941 0%,#2E2764 45%,#123E50 100%)}
+header.top .wrap{display:flex; flex-wrap:wrap; gap:14px; align-items:center; justify-content:space-between}
+h1{margin:0; font-size:clamp(23px,4.2vw,34px); line-height:1.15; font-weight:800; letter-spacing:-.01em}
+header.top p.sub{margin:8px 0 0; color:#D9DEF8; max-width:60ch; font-size:15px}
+.badge-row{display:flex; gap:8px; flex-wrap:wrap; margin-top:12px}
+.badge{background:rgba(255,255,255,.14); border:1px solid rgba(255,255,255,.22); color:#fff;
+  border-radius:999px; padding:4px 11px; font-size:12.5px; font-weight:600}
+button.theme{
+  background:rgba(255,255,255,.14); border:1px solid rgba(255,255,255,.28); color:#fff;
+  border-radius:999px; padding:8px 14px; font-size:13.5px; font-weight:600; cursor:pointer;
+}
+button.theme:hover{background:rgba(255,255,255,.24)}
+
+/* ---------- pestañas ---------- */
+nav.tabs{position:sticky; top:0; z-index:20; background:var(--surface); border-bottom:1px solid var(--line);
+  box-shadow:0 1px 0 rgba(0,0,0,.02)}
+nav.tabs .wrap{display:flex; gap:6px; overflow-x:auto; padding-block:9px; scrollbar-width:thin}
+nav.tabs button{
+  flex:0 0 auto; border:1px solid var(--line); background:var(--surface); color:var(--muted);
+  border-radius:999px; padding:8px 15px; font-size:14px; font-weight:650; cursor:pointer; white-space:nowrap;
+  transition:.15s;
+}
+nav.tabs button:hover{border-color:var(--brand); color:var(--ink)}
+nav.tabs button[aria-selected="true"]{background:var(--brand); border-color:var(--brand); color:#fff}
+
+/* ---------- paneles ---------- */
+main{padding-block:26px 46px}
+.panel[hidden]{display:none!important}
+.panel h2{margin:0 0 4px; font-size:clamp(20px,3vw,26px); letter-spacing:-.01em}
+.panel .lead{margin:0 0 20px; color:var(--muted); max-width:72ch}
+.grid{display:grid; grid-template-columns:minmax(0,1.05fr) minmax(0,1fr); gap:20px; align-items:start}
+@media (max-width:860px){ .grid{grid-template-columns:1fr} }
+.card{background:var(--surface); border:1px solid var(--line); border-radius:var(--r); padding:16px; box-shadow:var(--shadow)}
+.card h3{margin:0 0 10px; font-size:14px; letter-spacing:.08em; text-transform:uppercase; color:var(--brand-2); font-weight:750}
+.figwrap{display:flex; justify-content:center; overflow-x:auto}
+svg{max-width:100%; height:auto; touch-action:manipulation}
+
+/* ---------- controles ---------- */
+.ctrl{display:flex; align-items:center; gap:12px; margin-bottom:12px; flex-wrap:wrap}
+.ctrl label{min-width:74px; font-weight:700; font-size:14.5px}
+.ctrl input[type=range]{flex:1 1 150px; min-width:120px; accent-color:var(--brand); height:22px}
+.val{font-variant-numeric:tabular-nums; font-weight:800; min-width:34px; text-align:right;
+  background:var(--soft); border-radius:8px; padding:2px 9px; font-size:14.5px}
+.btns{display:flex; gap:8px; flex-wrap:wrap; margin-top:4px}
+.btn{border:1px solid var(--line); background:var(--surface); color:var(--ink); border-radius:10px;
+  padding:9px 14px; font-size:14px; font-weight:650; cursor:pointer; transition:.15s}
+.btn:hover{border-color:var(--brand); color:var(--brand)}
+.btn.primary{background:var(--brand); border-color:var(--brand); color:#fff}
+.btn.primary:hover{filter:brightness(1.08); color:#fff}
+.btn.ghost{background:transparent}
+.btn[disabled]{opacity:.45; cursor:not-allowed}
+
+/* ---------- fórmulas ---------- */
+.formula{font-size:clamp(17px,2.6vw,22px); font-weight:700; letter-spacing:.01em; margin:2px 0 10px; line-height:1.9}
+.formula .t{border-radius:7px; padding:2px 6px; transition:.18s; cursor:pointer}
+.t-a2{background:color-mix(in srgb, var(--c-a2) 16%, transparent); color:var(--c-a2)}
+.t-ab{background:color-mix(in srgb, var(--c-ab) 22%, transparent); color:#A66713}
+.t-b2{background:color-mix(in srgb, var(--c-b2) 18%, transparent); color:#0C7A6D}
+.t-ab2{background:color-mix(in srgb, var(--c-ab2) 16%, transparent); color:#A52E7A}
+:root[data-theme="dark"] .t-ab{color:#F5B860}
+:root[data-theme="dark"] .t-b2{color:#3FC9B4}
+:root[data-theme="dark"] .t-ab2{color:#EE6FBE}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]) .t-ab{color:#F5B860}
+  :root:not([data-theme="light"]) .t-b2{color:#3FC9B4}
+  :root:not([data-theme="light"]) .t-ab2{color:#EE6FBE}
+}
+.formula .t.on{outline:2.5px solid currentColor; outline-offset:1px}
+.numeric{font-size:16px; color:var(--muted); font-variant-numeric:tabular-nums; margin:0 0 6px}
+.numeric b{color:var(--ink)}
+
+/* ---------- tabla de áreas ---------- */
+table.areas{width:100%; border-collapse:collapse; font-size:14.5px; font-variant-numeric:tabular-nums}
+table.areas th{text-align:left; font-size:12px; letter-spacing:.07em; text-transform:uppercase; color:var(--muted);
+  padding:6px 8px; border-bottom:1px solid var(--line)}
+table.areas td{padding:8px; border-bottom:1px solid var(--line)}
+table.areas tr:last-child td{border-bottom:none; font-weight:800}
+table.areas tr.on td{background:var(--soft)}
+.chip{display:inline-block; width:13px; height:13px; border-radius:4px; margin-right:7px; vertical-align:-1px}
+
+/* ---------- pasos ---------- */
+.steps{display:flex; flex-direction:column; gap:8px; margin-top:4px}
+.step{display:flex; gap:11px; align-items:flex-start; padding:10px 12px; border-radius:10px; border:1px solid transparent}
+.step .n{flex:0 0 auto; width:25px; height:25px; border-radius:50%; background:var(--soft); color:var(--muted);
+  display:grid; place-items:center; font-size:13px; font-weight:800}
+.step.on{background:var(--soft); border-color:var(--line)}
+.step.on .n{background:var(--brand); color:#fff}
+.step .txt{font-size:14.5px}
+.step.done .n{background:var(--c-pos); color:#fff}
+
+/* ---------- aviso / nota ---------- */
+.note{border-left:4px solid var(--brand-2); background:var(--soft); border-radius:0 10px 10px 0;
+  padding:12px 14px; font-size:14.5px; color:var(--ink); margin-top:14px}
+.note b{color:var(--brand-2)}
+
+/* ---------- práctica ---------- */
+.quiz-head{display:flex; gap:10px; flex-wrap:wrap; align-items:center; justify-content:space-between; margin-bottom:14px}
+.score{display:flex; gap:9px; flex-wrap:wrap}
+.pill{background:var(--soft); border:1px solid var(--line); border-radius:999px; padding:6px 13px; font-size:13.5px; font-weight:700}
+.pill b{color:var(--brand); font-variant-numeric:tabular-nums}
+.q{font-size:clamp(17px,2.6vw,20px); font-weight:750; margin:4px 0 14px}
+.opts{display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:10px}
+.opt{text-align:left; border:1.5px solid var(--line); background:var(--surface); color:var(--ink);
+  border-radius:12px; padding:13px 15px; font-size:15.5px; font-weight:600; cursor:pointer; transition:.15s;
+  display:flex; gap:10px; align-items:center}
+.opt:hover:not([disabled]){border-color:var(--brand); transform:translateY(-1px)}
+.opt .lt{flex:0 0 auto; width:25px; height:25px; border-radius:50%; background:var(--soft); color:var(--muted);
+  display:grid; place-items:center; font-size:13px; font-weight:800}
+.opt.good{border-color:var(--c-pos); background:color-mix(in srgb, var(--c-pos) 12%, var(--surface))}
+.opt.good .lt{background:var(--c-pos); color:#fff}
+.opt.bad{border-color:var(--c-neg); background:color-mix(in srgb, var(--c-neg) 12%, var(--surface))}
+.opt.bad .lt{background:var(--c-neg); color:#fff}
+.fb{margin-top:14px; padding:13px 15px; border-radius:11px; font-size:15px; display:none}
+.fb.show{display:block}
+.fb.ok{background:color-mix(in srgb, var(--c-pos) 13%, var(--surface)); border:1px solid var(--c-pos)}
+.fb.no{background:color-mix(in srgb, var(--c-neg) 12%, var(--surface)); border:1px solid var(--c-neg)}
+
+/* ---------- reto ---------- */
+.target{font-size:clamp(18px,3vw,24px); font-weight:800; text-align:center; padding:12px; border-radius:12px;
+  background:var(--soft); border:1px dashed var(--line); margin-bottom:12px}
+.status{font-size:14.5px; font-weight:700; text-align:center; margin-top:8px; min-height:22px}
+.status.ok{color:var(--c-pos)}
+.status.no{color:var(--muted)}
+
+
+/* ---------- créditos y citación ---------- */
+.cred-bar{background:var(--soft); border-top:1px solid var(--line); border-bottom:1px solid var(--line); margin-top:4px;
+  text-align:center; padding-block:14px}
+.cred-toggle{background:none; border:none; color:var(--muted); font:inherit; font-size:15.5px; font-weight:700;
+  cursor:pointer; border-bottom:2px dotted var(--line); padding:2px 2px 4px}
+.cred-toggle:hover{color:var(--brand); border-bottom-color:var(--brand)}
+.cred-body{background:var(--surface); padding-block:22px 28px}
+.cred-body[hidden]{display:none}
+.cred-body p.cred-name{font-family:Georgia,"Times New Roman",serif; font-size:clamp(21px,3.2vw,27px);
+  font-weight:700; color:var(--ink); margin:0 0 15px; letter-spacing:-.01em; line-height:1.25}
+.cred-body p{margin:0 0 11px; color:var(--muted); font-size:15.5px; max-width:78ch}
+.cred-body a{color:var(--brand-2); text-decoration:underline; text-underline-offset:2px}
+.cred-body .cita{color:var(--ink)}
+.orcid{display:inline-flex; align-items:center; gap:6px; vertical-align:-3px}
+.cite-tools{display:flex; gap:9px; flex-wrap:wrap; align-items:center; margin-top:16px}
+.cite-tools .btn{font-size:13.5px; padding:8px 13px}
+#copyMsg{font-size:13.5px; font-weight:700; color:var(--c-pos)}
+details.bib{margin-top:14px}
+details.bib summary{cursor:pointer; font-size:14px; font-weight:700; color:var(--brand); width:fit-content}
+details.bib pre{background:var(--soft); border:1px solid var(--line); border-radius:10px; padding:13px;
+  overflow-x:auto; font-size:13px; line-height:1.5; margin:10px 0 0; color:var(--ink)}
+.legend{display:flex; flex-wrap:wrap; gap:10px 16px; margin-top:10px; font-size:13.5px; color:var(--muted)}
+.legend span{display:flex; align-items:center; gap:6px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <div>
+      <h1>Productos notables: la demostración que se ve</h1>
+      <p class="sub">Cada identidad algebraica de esta página es, en el fondo, una afirmación sobre áreas y volúmenes.
+        Mueva los deslizadores, separe las piezas y compruebe que las cuentas cierran.</p>
+      <div class="badge-row">
+        <span class="badge">5 demostraciones</span>
+        <span class="badge">Práctica autoevaluable</span>
+        <span class="badge">Sin instalación</span>
+      </div>
+    </div>
+    <button class="theme" id="themeBtn" type="button">Tema oscuro</button>
+  </div>
+</header>
+
+<nav class="tabs" aria-label="Secciones">
+  <div class="wrap" role="tablist">
+    <button role="tab" aria-selected="true"  data-go="p1">① (a + b)²</button>
+    <button role="tab" aria-selected="false" data-go="p2">② (a − b)²</button>
+    <button role="tab" aria-selected="false" data-go="p3">③ (a + b)(a − b)</button>
+    <button role="tab" aria-selected="false" data-go="p4">④ (x + p)(x + q)</button>
+    <button role="tab" aria-selected="false" data-go="p5">⑤ (a + b)³</button>
+    <button role="tab" aria-selected="false" data-go="p6">⑥ Práctica</button>
+  </div>
+</nav>
+
+<main class="wrap">
+
+<!-- ============ 1 ============ -->
+<section class="panel" id="p1">
+  <h2>Cuadrado de una suma</h2>
+  <p class="lead">Un cuadrado de lado <b>a + b</b> se parte en cuatro piezas. Sume sus áreas y obtendrá la identidad.
+    Pase el puntero (o toque) una pieza para ver a qué término corresponde.</p>
+  <div class="grid">
+    <div class="card">
+      <h3>Figura</h3>
+      <div class="figwrap"><svg id="svg1" viewBox="0 0 420 420" role="img" aria-label="Cuadrado de lado a más b dividido en cuatro regiones"></svg></div>
+      <div class="legend">
+        <span><i class="chip" style="background:var(--c-a2)"></i> a²</span>
+        <span><i class="chip" style="background:var(--c-ab)"></i> ab</span>
+        <span><i class="chip" style="background:var(--c-b2)"></i> b²</span>
+      </div>
+    </div>
+    <div>
+      <div class="card">
+        <h3>Controles</h3>
+        <div class="ctrl"><label for="a1">a</label><input id="a1" type="range" min="1" max="9" step="1" value="5"><span class="val" id="a1v">5</span></div>
+        <div class="ctrl"><label for="b1">b</label><input id="b1" type="range" min="1" max="9" step="1" value="3"><span class="val" id="b1v">3</span></div>
+        <div class="btns">
+          <button class="btn primary" id="exp1" type="button">Separar las piezas</button>
+          <button class="btn" id="grid1" type="button">Mostrar cuadrícula</button>
+        </div>
+      </div>
+      <div class="card" style="margin-top:16px">
+        <h3>Identidad</h3>
+        <p class="formula" id="f1">(a + b)² = <span class="t t-a2" data-k="a2">a²</span> + <span class="t t-ab" data-k="ab">2ab</span> + <span class="t t-b2" data-k="b2">b²</span></p>
+        <p class="numeric" id="n1"></p>
+        <table class="areas" id="tb1"></table>
+        <div class="note"><b>El error más común.</b> Escribir (a + b)² = a² + b². La figura muestra lo que ese error olvida:
+          las dos piezas anaranjadas, que juntas valen 2ab y que nunca son cero si a y b lo son.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 2 ============ -->
+<section class="panel" id="p2" hidden>
+  <h2>Cuadrado de una diferencia</h2>
+  <p class="lead">Aquí no se suma: se recorta. Avance paso a paso y observe por qué aparece <b>+ b²</b> al final,
+    cuando lo que se hizo fue restar dos veces.</p>
+  <div class="grid">
+    <div class="card">
+      <h3>Figura</h3>
+      <div class="figwrap"><svg id="svg2" viewBox="0 0 420 420" role="img" aria-label="Cuadrado de lado a al que se le restan dos franjas"></svg></div>
+      <div class="legend">
+        <span><i class="chip" style="background:var(--c-a2)"></i> queda</span>
+        <span><i class="chip" style="background:var(--c-neg)"></i> se resta</span>
+        <span><i class="chip" style="background:var(--c-pos)"></i> se devuelve</span>
+      </div>
+    </div>
+    <div>
+      <div class="card">
+        <h3>Controles</h3>
+        <div class="ctrl"><label for="a2">a</label><input id="a2" type="range" min="3" max="10" step="1" value="7"><span class="val" id="a2v">7</span></div>
+        <div class="ctrl"><label for="b2">b</label><input id="b2" type="range" min="1" max="9" step="1" value="3"><span class="val" id="b2v">3</span></div>
+        <div class="btns">
+          <button class="btn" id="prev2" type="button">← Anterior</button>
+          <button class="btn primary" id="next2" type="button">Siguiente paso →</button>
+          <button class="btn ghost" id="reset2" type="button">Reiniciar</button>
+        </div>
+      </div>
+      <div class="card" style="margin-top:16px">
+        <h3>Razonamiento</h3>
+        <div class="steps" id="st2"></div>
+        <p class="formula" style="margin-top:14px" id="f2">(a − b)² = <span class="t t-a2" data-k="a2">a²</span> − <span class="t t-ab" data-k="ab">2ab</span> + <span class="t t-b2" data-k="b2">b²</span></p>
+        <p class="numeric" id="n2"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 3 ============ -->
+<section class="panel" id="p3" hidden>
+  <h2>Binomios conjugados · diferencia de cuadrados</h2>
+  <p class="lead">A un cuadrado de área a² se le quita un cuadrado de área b². La figura que queda se corta en dos piezas
+    y se reacomoda en un rectángulo. <b>Arrastre el deslizador</b> para mover la pieza y ver qué rectángulo se forma.</p>
+  <div class="grid">
+    <div class="card">
+      <h3>Figura</h3>
+      <div class="figwrap"><svg id="svg3" viewBox="0 0 420 425" role="img" aria-label="Transformación de la figura a cuadrado menos b cuadrado en un rectángulo"></svg></div>
+    </div>
+    <div>
+      <div class="card">
+        <h3>Controles</h3>
+        <div class="ctrl"><label for="a3">a</label><input id="a3" type="range" min="3" max="10" step="1" value="6"><span class="val" id="a3v">6</span></div>
+        <div class="ctrl"><label for="b3">b</label><input id="b3" type="range" min="1" max="9" step="1" value="2"><span class="val" id="b3v">2</span></div>
+        <div class="ctrl"><label for="t3">Mover</label><input id="t3" type="range" min="0" max="100" step="1" value="0"><span class="val" id="t3v">0%</span></div>
+        <div class="btns"><button class="btn primary" id="anim3" type="button">Animar</button></div>
+      </div>
+      <div class="card" style="margin-top:16px">
+        <h3>Identidad</h3>
+        <p class="formula">a² − b² = (a + b)(a − b)</p>
+        <p class="numeric" id="n3"></p>
+        <div class="note"><b>Qué prueba la figura.</b> Las dos piezas no cambian de área al moverse: sólo cambian de lugar.
+          Por eso el área de la figura recortada —que vale a² − b²— es igual a la del rectángulo final, cuyos lados miden
+          a + b y a − b.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 4 ============ -->
+<section class="panel" id="p4" hidden>
+  <h2>Producto de binomios con término común</h2>
+  <p class="lead">Un rectángulo de lados <b>x + p</b> y <b>x + q</b>. El área total explica de dónde salen el coeficiente
+    del término lineal y el término independiente: uno es la <b>suma</b> y el otro el <b>producto</b>.</p>
+  <div class="grid">
+    <div class="card">
+      <h3>Figura</h3>
+      <div class="figwrap"><svg id="svg4" viewBox="0 0 420 420" role="img" aria-label="Rectángulo de lados x más p y x más q dividido en cuatro regiones"></svg></div>
+      <div class="legend">
+        <span><i class="chip" style="background:var(--c-x2)"></i> x²</span>
+        <span><i class="chip" style="background:var(--c-ab)"></i> px y qx</span>
+        <span><i class="chip" style="background:var(--c-b2)"></i> pq</span>
+      </div>
+    </div>
+    <div>
+      <div class="card">
+        <h3>Controles</h3>
+        <div class="ctrl"><label for="p4i">p</label><input id="p4i" type="range" min="1" max="9" step="1" value="3"><span class="val" id="p4v">3</span></div>
+        <div class="ctrl"><label for="q4i">q</label><input id="q4i" type="range" min="1" max="9" step="1" value="5"><span class="val" id="q4v">5</span></div>
+        <p class="formula" id="f4" style="margin-top:6px">(x + p)(x + q) = <span class="t t-a2" data-k="a2">x²</span> + <span class="t t-ab" data-k="ab">(p + q)x</span> + <span class="t t-b2" data-k="b2">pq</span></p>
+        <p class="numeric" id="n4"></p>
+      </div>
+      <div class="card" style="margin-top:16px">
+        <h3>Reto de factorización</h3>
+        <p class="target" id="goal4">x² + 8x + 15</p>
+        <p style="margin:0 0 10px; color:var(--muted); font-size:14.5px">Mueva p y q hasta que el rectángulo represente exactamente ese trinomio.</p>
+        <div class="btns">
+          <button class="btn primary" id="check4" type="button">Comprobar</button>
+          <button class="btn" id="new4" type="button">Otro trinomio</button>
+        </div>
+        <p class="status no" id="st4">Suma actual: p + q = 8 · producto: pq = 15</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 5 ============ -->
+<section class="panel" id="p5" hidden>
+  <h2>Cubo de un binomio</h2>
+  <p class="lead">El mismo argumento, una dimensión más arriba. Un cubo de arista <b>a + b</b> se parte en ocho piezas:
+    una de volumen a³, tres de a²b, tres de ab² y una de b³. <b>Sepárelas</b> para contarlas.</p>
+  <div class="grid">
+    <div class="card">
+      <h3>Figura</h3>
+      <div class="figwrap"><svg id="svg5" viewBox="0 0 450 500" role="img" aria-label="Cubo de arista a más b dividido en ocho prismas"></svg></div>
+      <div class="legend">
+        <span><i class="chip" style="background:var(--c-a2)"></i> a³ (1 pieza)</span>
+        <span><i class="chip" style="background:var(--c-ab)"></i> a²b (3 piezas)</span>
+        <span><i class="chip" style="background:var(--c-ab2)"></i> ab² (3 piezas)</span>
+        <span><i class="chip" style="background:var(--c-b2)"></i> b³ (1 pieza)</span>
+      </div>
+    </div>
+    <div>
+      <div class="card">
+        <h3>Controles</h3>
+        <div class="ctrl"><label for="a5">a</label><input id="a5" type="range" min="1" max="6" step="1" value="3"><span class="val" id="a5v">3</span></div>
+        <div class="ctrl"><label for="b5">b</label><input id="b5" type="range" min="1" max="6" step="1" value="2"><span class="val" id="b5v">2</span></div>
+        <div class="ctrl"><label for="e5">Separar</label><input id="e5" type="range" min="0" max="100" step="1" value="0"><span class="val" id="e5v">0%</span></div>
+        <div class="btns"><button class="btn primary" id="anim5" type="button">Animar</button></div>
+      </div>
+      <div class="card" style="margin-top:16px">
+        <h3>Identidad</h3>
+        <p class="formula" id="f5">(a + b)³ = <span class="t t-a2" data-k="a3">a³</span> + <span class="t t-ab" data-k="a2b">3a²b</span> + <span class="t t-ab2" data-k="ab2">3ab²</span> + <span class="t t-b2" data-k="b3">b³</span></p>
+        <p class="numeric" id="n5"></p>
+        <table class="areas" id="tb5"></table>
+        <div class="note"><b>Por qué aparece el 3.</b> Las piezas de volumen a²b son tres porque hay tres maneras de elegir
+          cuál de las tres aristas mide b. Es el mismo conteo que produce los coeficientes del triángulo de Pascal.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 6 ============ -->
+<section class="panel" id="p6" hidden>
+  <h2>Práctica</h2>
+  <p class="lead">Diez reactivos generados al azar. Cada distractor corresponde a un error frecuente, de modo que la
+    retroalimentación indica <b>qué</b> se hizo mal, no sólo que la respuesta es incorrecta.</p>
+  <div class="card">
+    <div class="quiz-head">
+      <div class="score">
+        <span class="pill">Reactivo <b id="qi">1</b> / 10</span>
+        <span class="pill">Aciertos <b id="qok">0</b></span>
+        <span class="pill">Racha <b id="qstreak">0</b></span>
+      </div>
+      <button class="btn ghost" id="qreset" type="button">Reiniciar serie</button>
+    </div>
+    <p class="q" id="qtext">—</p>
+    <div class="opts" id="qopts"></div>
+    <div class="fb" id="qfb"></div>
+    <div class="btns" style="margin-top:14px">
+      <button class="btn primary" id="qnext" type="button" disabled>Siguiente →</button>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ===== Créditos y forma de citar ===== -->
+<div class="cred-bar">
+  <button class="cred-toggle" id="credBtn" type="button" aria-expanded="true" aria-controls="credBody">Ocultar créditos</button>
+</div>
+<div class="cred-body" id="credBody">
+  <div class="wrap">
+    <p class="cred-name">Dra. Dalia Imelda Castillo Márquez</p>
+    <p>Universidad Autónoma de Nayarit · Unidad Académica de Ciencias Básicas e Ingenierías</p>
+    <p>ORCID:
+      <span class="orcid" aria-hidden="true">
+        <svg width="16" height="16" viewBox="0 0 32 32" role="presentation">
+          <circle cx="16" cy="16" r="16" fill="#A6CE39"></circle>
+          <text x="16" y="22" text-anchor="middle" font-family="Georgia, serif" font-size="16" font-weight="700" fill="#fff">iD</text>
+        </svg>
+      </span>
+      <a href="https://orcid.org/0000-0002-5890-0437" rel="noopener" target="_blank">0000-0002-5890-0437</a>
+    </p>
+    <p>Versión 1.0 · octubre de 2026 · Licencia
+      <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es" rel="license noopener" target="_blank">CC BY-NC-SA 4.0</a>
+    </p>
+    <p class="cita">Cómo citar: <span id="citaApa"></span></p>
+    <div class="cite-tools">
+      <button class="btn" id="copyApa" type="button">Copiar cita (APA)</button>
+      <button class="btn" id="copyBib" type="button">Copiar BibTeX</button>
+      <span id="copyMsg" role="status" aria-live="polite"></span>
+    </div>
+    <details class="bib">
+      <summary>Ver la entrada BibTeX</summary>
+      <pre id="bibTex"></pre>
+    </details>
+    <p style="margin-top:16px; font-size:14px">
+      Esta obra puede compartirse y adaptarse con fines no comerciales, dando crédito a la autora y
+      distribuyendo las obras derivadas bajo la misma licencia.
+    </p>
+  </div>
+</div>
+
+<script>
+(function(){
+"use strict";
+const NS = "http://www.w3.org/2000/svg";
+const $  = id => document.getElementById(id);
+const mk = (n, at) => { const e = document.createElementNS(NS, n); for (const k in at) e.setAttribute(k, at[k]); return e; };
+const css = v => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+
+/* ---------------- tema ---------------- */
+const themeBtn = $("themeBtn");
+function oscuroActivo(){
+  const t = document.documentElement.getAttribute("data-theme");
+  if (t) return t === "dark";
+  return window.matchMedia("(prefers-color-scheme: dark)").matches;
+}
+function pintarBoton(){ themeBtn.textContent = oscuroActivo() ? "Tema claro" : "Tema oscuro"; }
+themeBtn.addEventListener("click", () => {
+  document.documentElement.setAttribute("data-theme", oscuroActivo() ? "light" : "dark");
+  pintarBoton(); redibujarTodo();
+});
+pintarBoton();
+
+/* ---------------- pestañas ---------------- */
+const tabs = [...document.querySelectorAll("nav.tabs button")];
+tabs.forEach(b => b.addEventListener("click", () => {
+  tabs.forEach(o => o.setAttribute("aria-selected", String(o === b)));
+  document.querySelectorAll("main .panel").forEach(p => { p.hidden = (p.id !== b.dataset.go); });
+  window.scrollTo({ top: 0, behavior: "smooth" });
+  redibujarTodo();
+}));
+
+/* ---------------- utilidades de dibujo ---------------- */
+/* fuera: "arriba" (texto encima), "abajo" (texto debajo) o "izq" (texto girado −90°) */
+function etiquetaLado(svg, x1, y1, x2, y2, txt, color, fuera){
+  const g = mk("g", {});
+  g.appendChild(mk("line", { x1, y1, x2, y2, stroke: color, "stroke-width": 2 }));
+  const mx = (x1 + x2) / 2, my = (y1 + y2) / 2;
+  const at = { fill: color, "font-size": 15, "font-weight": 700, "font-family": "inherit", "text-anchor": "middle" };
+  if (fuera === "izq"){
+    at.x = mx - 7; at.y = my;
+    at.transform = "rotate(-90 " + (mx - 7) + " " + my + ")";
+    at["dominant-baseline"] = "middle";
+  } else {
+    at.x = mx; at.y = my + (fuera === "abajo" ? 19 : -8);
+  }
+  const t = mk("text", at);
+  t.textContent = txt;
+  g.appendChild(t);
+  svg.appendChild(g);
+}
+/* mezcla un color hexadecimal hacia el negro (f = 1 deja el color intacto) */
+function oscurecer(hex, f){
+  const h = (hex || "").trim().replace("#", "");
+  if (h.length !== 6) return hex;
+  const n = parseInt(h, 16);
+  const r = Math.round(((n >> 16) & 255) * f),
+        g = Math.round(((n >> 8) & 255) * f),
+        b = Math.round((n & 255) * f);
+  return "rgb(" + r + "," + g + "," + b + ")";
+}
+function texto(svg, x, y, s, o){
+  o = o || {};
+  const t = mk("text", {
+    x, y, "text-anchor": o.anchor || "middle", fill: o.fill || css("--ink"),
+    "font-size": o.size || 15, "font-weight": o.weight || 700, "font-family": "inherit",
+    opacity: o.op === undefined ? 1 : o.op
+  });
+  if (o.halo){ t.setAttribute("stroke", o.halo); t.setAttribute("stroke-width", 4);
+               t.setAttribute("paint-order", "stroke"); t.setAttribute("stroke-linejoin", "round"); }
+  t.textContent = s; svg.appendChild(t); return t;
+}
+function cuadricula(svg, x, y, w, h, paso, color){
+  const g = mk("g", { stroke: color, "stroke-width": 0.7, opacity: .55 });
+  for (let i = paso; i < w - 0.01; i += paso) g.appendChild(mk("line", { x1: x + i, y1: y, x2: x + i, y2: y + h }));
+  for (let j = paso; j < h - 0.01; j += paso) g.appendChild(mk("line", { x1: x, y1: y + j, x2: x + w, y2: y + j }));
+  svg.appendChild(g);
+}
+
+/* =================================================================
+   1 · (a + b)²
+   ================================================================= */
+const S1 = { a: 5, b: 3, exp: false, grid: false, hl: null };
+function dib1(){
+  const svg = $("svg1"); svg.textContent = "";
+  const { a, b } = S1, n = a + b;
+  const LADO = 300, OX = 78, OY = 52, u = LADO / n;
+  const A = a * u, B = b * u, g = S1.exp ? 16 : 0;
+  const piezas = [
+    { k:"a2", x:0,      y:0,      w:A, h:A, c:css("--c-a2"), lb:"a²", v:a*a, dx:0, dy:0 },
+    { k:"ab", x:A,      y:0,      w:B, h:A, c:css("--c-ab"), lb:"ab", v:a*b, dx:g, dy:0 },
+    { k:"ab", x:0,      y:A,      w:A, h:B, c:css("--c-ab"), lb:"ab", v:a*b, dx:0, dy:g },
+    { k:"b2", x:A,      y:A,      w:B, h:B, c:css("--c-b2"), lb:"b²", v:b*b, dx:g, dy:g }
+  ];
+  piezas.forEach(p => {
+    const X = OX + p.x + p.dx, Y = OY + p.y + p.dy;
+    const r = mk("rect", { x:X, y:Y, width:p.w, height:p.h, fill:p.c, rx:3,
+      opacity: (S1.hl && S1.hl !== p.k) ? .28 : .92,
+      stroke: css("--surface"), "stroke-width": 2, style:"cursor:pointer;transition:.2s" });
+    r.addEventListener("pointerenter", () => { S1.hl = p.k; dib1(); });
+    r.addEventListener("pointerleave", () => { S1.hl = null; dib1(); });
+    svg.appendChild(r);
+    if (S1.grid) cuadricula(svg, X, Y, p.w, p.h, u, "#ffffff");
+    if (p.w > 26 && p.h > 22){
+      texto(svg, X + p.w/2, Y + p.h/2 + (p.h > 42 ? -2 : 5), p.lb, { fill:"#fff", size: Math.min(21, p.w/2.3, p.h/2.3) + 4 });
+      if (p.h > 42) texto(svg, X + p.w/2, Y + p.h/2 + 18, "= " + p.v, { fill:"#fff", size:13, weight:600, op:.9 });
+    }
+  });
+  // dimensiones
+  etiquetaLado(svg, OX, OY-18, OX+A, OY-18, "a = " + a, css("--c-a2"), "arriba");
+  etiquetaLado(svg, OX+A+g, OY-18, OX+A+g+B, OY-18, "b = " + b, css("--c-b2"), "arriba");
+  etiquetaLado(svg, OX-22, OY, OX-22, OY+A, "a = " + a, css("--c-a2"), "izq");
+  etiquetaLado(svg, OX-22, OY+A+g, OX-22, OY+A+g+B, "b = " + b, css("--c-b2"), "izq");
+  texto(svg, OX + (LADO+g)/2, OY + LADO + g + 34, "Lado total = a + b = " + n + "   ·   Área = " + (n*n),
+        { fill: css("--muted"), size:14.5, weight:650 });
+  // tabla + fórmula
+  const filas = [
+    ["a2","a²", a + " × " + a, a*a, css("--c-a2")],
+    ["ab","2ab", "2 × " + a + " × " + b, 2*a*b, css("--c-ab")],
+    ["b2","b²", b + " × " + b, b*b, css("--c-b2")]
+  ];
+  $("tb1").innerHTML =
+    "<tr><th>Término</th><th>Cálculo</th><th style='text-align:right'>Área</th></tr>" +
+    filas.map(f => "<tr class='" + (S1.hl===f[0] ? "on" : "") + "'><td><i class='chip' style='background:" + f[4] +
+      "'></i>" + f[1] + "</td><td>" + f[2] + "</td><td style='text-align:right'>" + f[3] + "</td></tr>").join("") +
+    "<tr><td>(a + b)²</td><td>" + n + " × " + n + "</td><td style='text-align:right'>" + (n*n) + "</td></tr>";
+  $("n1").innerHTML = "(<b>" + a + "</b> + <b>" + b + "</b>)² = " + (a*a) + " + " + (2*a*b) + " + " + (b*b) +
+                      " = <b>" + (n*n) + "</b>";
+  document.querySelectorAll("#f1 .t").forEach(t => t.classList.toggle("on", S1.hl === t.dataset.k));
+}
+$("a1").addEventListener("input", e => { S1.a = +e.target.value; $("a1v").textContent = S1.a; dib1(); });
+$("b1").addEventListener("input", e => { S1.b = +e.target.value; $("b1v").textContent = S1.b; dib1(); });
+$("exp1").addEventListener("click", () => { S1.exp = !S1.exp; $("exp1").textContent = S1.exp ? "Unir las piezas" : "Separar las piezas"; dib1(); });
+$("grid1").addEventListener("click", () => { S1.grid = !S1.grid; $("grid1").textContent = S1.grid ? "Ocultar cuadrícula" : "Mostrar cuadrícula"; dib1(); });
+document.querySelectorAll("#f1 .t").forEach(t => {
+  t.addEventListener("pointerenter", () => { S1.hl = t.dataset.k; dib1(); });
+  t.addEventListener("pointerleave", () => { S1.hl = null; dib1(); });
+});
+
+/* =================================================================
+   2 · (a − b)²
+   ================================================================= */
+const S2 = { a: 7, b: 3, paso: 0 };
+const TEXTOS2 = [
+  "Partimos de un cuadrado de lado a. Su área es a².",
+  "Se resta una franja horizontal de a × b. Área retirada: ab.",
+  "Se resta una franja vertical de b × a. Pero la esquina b² ya se había retirado: se restó dos veces.",
+  "Se devuelve la esquina b², que sobraba restada. Por eso la identidad lleva + b².",
+  "Lo que queda es un cuadrado de lado a − b. Su área es (a − b)²."
+];
+function dib2(){
+  const svg = $("svg2"); svg.textContent = "";
+  let { a, b, paso } = S2;
+  if (b > a - 1){ b = S2.b = a - 1; $("b2").value = b; $("b2v").textContent = b; }
+  const LADO = 300, OX = 78, OY = 52, u = LADO / a, c = (a - b) * u, d = b * u;
+  const base = css("--c-a2"), neg = css("--c-neg"), pos = css("--c-pos"), sur = css("--surface");
+  // Q (queda), R (vertical), S (horizontal), T (esquina)
+  const estado = { Q: "base", R: "base", S: "base", T: "base" };
+  if (paso >= 1){ estado.S = "neg"; estado.T = "neg"; }
+  if (paso >= 2){ estado.R = "neg"; estado.T = "neg2"; }
+  if (paso >= 3){ estado.T = "pos"; }
+  if (paso >= 4){ estado.R = "off"; estado.S = "off"; estado.T = "off"; }
+  const col = e => e === "neg" || e === "neg2" ? neg : e === "pos" ? pos : e === "off" ? css("--line") : base;
+  const op  = e => e === "off" ? .22 : e === "neg2" ? .95 : .88;
+  const cajas = [
+    { k:"Q", x:0, y:0, w:c, h:c, e:estado.Q, lb:"(a − b)²" },
+    { k:"S", x:0, y:c, w:c, h:d, e:estado.S, lb:"" },
+    { k:"R", x:c, y:0, w:d, h:c, e:estado.R, lb:"" },
+    { k:"T", x:c, y:c, w:d, h:d, e:estado.T, lb:"b²" }
+  ];
+  cajas.forEach(p => {
+    svg.appendChild(mk("rect", { x:OX+p.x, y:OY+p.y, width:p.w, height:p.h, fill:col(p.e),
+      opacity:op(p.e), stroke:sur, "stroke-width":2, rx:2, style:"transition:.25s" }));
+    if (p.e === "neg2"){
+      const defs = mk("defs", {});
+      const cp = mk("clipPath", { id:"clip-" + p.k });
+      cp.appendChild(mk("rect", { x:OX+p.x, y:OY+p.y, width:p.w, height:p.h }));
+      defs.appendChild(cp); svg.appendChild(defs);
+      const h = mk("g", { opacity:.95, "clip-path":"url(#clip-" + p.k + ")" });
+      for (let i = -p.h; i < p.w; i += 7)
+        h.appendChild(mk("line", { x1:OX+p.x+i, y1:OY+p.y, x2:OX+p.x+i+p.h, y2:OY+p.y+p.h, stroke:"#fff", "stroke-width":1.8 }));
+      svg.appendChild(h);
+    }
+    if (p.lb && p.w > 40 && p.h > 26)
+      texto(svg, OX+p.x+p.w/2, OY+p.y+p.h/2+6, p.lb,
+        { fill:"#fff", size: Math.min(20, p.w/4.2) + 3, halo: p.e === "neg2" ? neg : null });
+  });
+  svg.appendChild(mk("rect", { x:OX, y:OY, width:LADO, height:LADO, fill:"none",
+    stroke: css("--muted"), "stroke-width":2, "stroke-dasharray": paso >= 1 ? "6 5" : "0", opacity:.65, rx:2 }));
+  etiquetaLado(svg, OX, OY-18, OX+c, OY-18, "a − b = " + (a-b), css("--c-a2"), "arriba");
+  etiquetaLado(svg, OX+c, OY-18, OX+LADO, OY-18, "b = " + b, css("--c-b2"), "arriba");
+  etiquetaLado(svg, OX-22, OY, OX-22, OY+c, "a − b = " + (a-b), css("--c-a2"), "izq");
+  etiquetaLado(svg, OX-22, OY+c, OX-22, OY+LADO, "b = " + b, css("--c-b2"), "izq");
+  texto(svg, OX + LADO/2, OY + LADO + 34, "Paso " + (paso+1) + " de 5", { fill: css("--muted"), size:14.5, weight:650 });
+
+  $("st2").innerHTML = TEXTOS2.map((t, i) =>
+    "<div class='step " + (i === paso ? "on" : (i < paso ? "done" : "")) + "'><span class='n'>" +
+    (i < paso ? "✓" : (i+1)) + "</span><span class='txt'>" + t + "</span></div>").join("");
+  const claves = [null, "ab", "ab", "b2", "a2"];
+  document.querySelectorAll("#f2 .t").forEach(t => t.classList.toggle("on", claves[paso] === t.dataset.k));
+  $("n2").innerHTML = "(<b>" + a + "</b> − <b>" + b + "</b>)² = " + (a*a) + " − " + (2*a*b) + " + " + (b*b) +
+                      " = <b>" + ((a-b)*(a-b)) + "</b>";
+  $("prev2").disabled = paso === 0; $("next2").disabled = paso === 4;
+}
+$("a2").addEventListener("input", e => { S2.a = +e.target.value; $("a2v").textContent = S2.a; dib2(); });
+$("b2").addEventListener("input", e => { S2.b = +e.target.value; $("b2v").textContent = S2.b; dib2(); });
+$("next2").addEventListener("click", () => { if (S2.paso < 4){ S2.paso++; dib2(); } });
+$("prev2").addEventListener("click", () => { if (S2.paso > 0){ S2.paso--; dib2(); } });
+$("reset2").addEventListener("click", () => { S2.paso = 0; dib2(); });
+
+/* =================================================================
+   3 · a² − b² = (a + b)(a − b)
+   ================================================================= */
+const S3 = { a: 6, b: 2, t: 0, anim: 0 };
+function dib3(){
+  const svg = $("svg3"); svg.textContent = "";
+  let { a, b, t } = S3;
+  if (b > a - 1){ b = S3.b = a - 1; $("b3").value = b; $("b3v").textContent = b; }
+  const u = 255 / (a + b), OX = 92, OY = 46;
+  const A = a*u, B = b*u, C = (a-b)*u, T = t/100;
+  const cA = css("--c-a2"), cB = css("--c-ab"), sur = css("--surface");
+  // contorno original (se desvanece conforme la pieza se mueve)
+  svg.appendChild(mk("path", {
+    d: "M " + OX + " " + OY + " h " + A + " v " + B + " h " + (-B) + " v " + (A - B) + " h " + (-C) + " Z",
+    fill:"none", stroke: css("--muted"), "stroke-dasharray":"5 5", "stroke-width":1.6, opacity: 0.5 * (1 - T) }));
+  // pieza P (fija)
+  svg.appendChild(mk("rect", { x:OX, y:OY, width:C, height:A, fill:cA, opacity:.9, rx:3, stroke:sur, "stroke-width":2 }));
+  if (C > 40) texto(svg, OX + C/2, OY + A/2 + 6, "P", { fill:"#fff", size:22 });
+  // pieza Q (móvil)
+  const c0x = OX + C + B/2, c0y = OY + B + C/2;
+  const c1x = OX + C/2,     c1y = OY + A + B/2;
+  const gx = (c1x - c0x) * T, gy = (c1y - c0y) * T;
+  const gq = mk("g", { transform: "translate(" + gx.toFixed(2) + "," + gy.toFixed(2) + ") rotate(" +
+      (-90*T).toFixed(2) + " " + c0x.toFixed(2) + " " + c0y.toFixed(2) + ")", style:"transition:.08s linear" });
+  gq.appendChild(mk("rect", { x:OX + C, y:OY + B, width:B, height:C, fill:cB, opacity:.95, rx:3, stroke:sur, "stroke-width":2 }));
+  gq.appendChild((function(){ const tt = mk("text", { x:OX + C + B/2, y:OY + B + C/2 + 6, "text-anchor":"middle",
+      fill:"#fff", "font-size":22, "font-weight":700, "font-family":"inherit",
+      transform:"rotate(" + (90*T).toFixed(2) + " " + (OX + C + B/2).toFixed(2) + " " + (OY + B + C/2).toFixed(2) + ")" });
+      tt.textContent = "Q"; return tt; })());
+  svg.appendChild(gq);
+  // hueco b²
+  if (T < 0.99){
+    svg.appendChild(mk("rect", { x:OX + C, y:OY, width:B, height:B, fill:"none",
+      stroke: css("--c-neg"), "stroke-width":2, "stroke-dasharray":"5 4", rx:2, opacity: 1 - T }));
+    texto(svg, OX + C + B/2, OY + B/2 + 5, "b²", { fill: css("--c-neg"), size:14, op: 1 - T });
+  }
+  // rectángulo final
+  if (T > 0.02){
+    svg.appendChild(mk("rect", { x:OX, y:OY, width:C, height:A + B, fill:"none",
+      stroke: css("--brand"), "stroke-width":2.5, "stroke-dasharray":"7 5", rx:3, opacity:T }));
+    etiquetaLado(svg, OX - 26, OY, OX - 26, OY + A + B, "a + b = " + (a+b), css("--brand"), "izq");
+    etiquetaLado(svg, OX, OY + A + B + 14, OX + C, OY + A + B + 14, "a − b = " + (a-b), css("--brand"), "abajo");
+  } else {
+    etiquetaLado(svg, OX - 26, OY, OX - 26, OY + A, "a = " + a, cA, "izq");
+    etiquetaLado(svg, OX, OY + A + 14, OX + A, OY + A + 14, "a = " + a, cA, "abajo");
+  }
+  texto(svg, 210, 408, T < .02 ? "Figura inicial: a² − b²" : (T > .98 ? "Rectángulo final: (a + b)(a − b)" : "Reacomodando la pieza Q…"),
+        { fill: css("--muted"), size:14.5, weight:650 });
+  $("n3").innerHTML = "<b>" + a + "</b>² − <b>" + b + "</b>² = " + (a*a - b*b) + "   y   (" + a + " + " + b + ")(" +
+                      a + " − " + b + ") = " + (a+b) + " × " + (a-b) + " = <b>" + ((a+b)*(a-b)) + "</b>";
+}
+$("a3").addEventListener("input", e => { S3.a = +e.target.value; $("a3v").textContent = S3.a; dib3(); });
+$("b3").addEventListener("input", e => { S3.b = +e.target.value; $("b3v").textContent = S3.b; dib3(); });
+$("t3").addEventListener("input", e => { S3.t = +e.target.value; $("t3v").textContent = S3.t + "%"; dib3(); });
+$("anim3").addEventListener("click", () => {
+  cancelAnimationFrame(S3.anim);
+  const ida = S3.t < 50; const t0 = performance.now(); const ini = S3.t; const fin = ida ? 100 : 0;
+  (function paso(ahora){
+    const k = Math.min(1, (ahora - t0) / 1100);
+    const e = k < .5 ? 2*k*k : 1 - Math.pow(-2*k + 2, 2)/2;
+    S3.t = Math.round(ini + (fin - ini) * e);
+    $("t3").value = S3.t; $("t3v").textContent = S3.t + "%"; dib3();
+    if (k < 1) S3.anim = requestAnimationFrame(paso);
+  })(t0);
+});
+
+/* =================================================================
+   4 · (x + p)(x + q)
+   ================================================================= */
+const S4 = { p: 3, q: 5, hl: null, meta: { s: 8, pr: 15 } };
+const RETOS = [[3,5],[2,7],[4,6],[1,9],[5,7],[3,8],[2,9],[4,5],[6,7],[3,4],[2,5],[4,9]];
+function dib4(){
+  const svg = $("svg4"); svg.textContent = "";
+  const { p, q } = S4, X = 4;                   // x se dibuja con longitud fija de 4 unidades
+  const u = 285 / Math.max(X + p, X + q), OX = 80, OY = 52;
+  const XW = X*u, P = p*u, Q = q*u;
+  const piezas = [
+    { k:"a2", x:0,  y:0,  w:XW, h:XW, c:css("--c-x2"), lb:"x²"       },
+    { k:"ab", x:XW, y:0,  w:P,  h:XW, c:css("--c-ab"), lb:"p·x"      },
+    { k:"ab", x:0,  y:XW, w:XW, h:Q,  c:css("--c-ab"), lb:"q·x"      },
+    { k:"b2", x:XW, y:XW, w:P,  h:Q,  c:css("--c-b2"), lb: (p*q)+""  }
+  ];
+  piezas.forEach(z => {
+    const r = mk("rect", { x:OX+z.x, y:OY+z.y, width:z.w, height:z.h, fill:z.c, rx:3,
+      opacity:(S4.hl && S4.hl !== z.k) ? .28 : .92, stroke:css("--surface"), "stroke-width":2,
+      style:"cursor:pointer;transition:.2s" });
+    r.addEventListener("pointerenter", () => { S4.hl = z.k; dib4(); });
+    r.addEventListener("pointerleave", () => { S4.hl = null; dib4(); });
+    svg.appendChild(r);
+    if (z.w > 28 && z.h > 22) texto(svg, OX+z.x+z.w/2, OY+z.y+z.h/2+6, z.lb, { fill:"#fff", size: Math.min(20, z.w/2.6, z.h/2.2)+3 });
+  });
+  etiquetaLado(svg, OX, OY-18, OX+XW, OY-18, "x", css("--c-x2"), "arriba");
+  etiquetaLado(svg, OX+XW, OY-18, OX+XW+P, OY-18, "p = " + p, css("--c-ab"), "arriba");
+  etiquetaLado(svg, OX-22, OY, OX-22, OY+XW, "x", css("--c-x2"), "izq");
+  etiquetaLado(svg, OX-22, OY+XW, OX-22, OY+XW+Q, "q = " + q, css("--c-ab"), "izq");
+  texto(svg, OX + (XW+P)/2, OY + XW + Q + 34, "Lados: (x + " + p + ") y (x + " + q + ")",
+        { fill: css("--muted"), size:14.5, weight:650 });
+  $("n4").innerHTML = "(x + <b>" + p + "</b>)(x + <b>" + q + "</b>) = x² + <b>" + (p+q) + "</b>x + <b>" + (p*q) + "</b>";
+  document.querySelectorAll("#f4 .t").forEach(t => t.classList.toggle("on", S4.hl === t.dataset.k));
+  const ok = (p + q === S4.meta.s) && (p * q === S4.meta.pr);
+  const st = $("st4");
+  st.textContent = ok ? "¡Correcto! x² + " + S4.meta.s + "x + " + S4.meta.pr + " = (x + " + p + ")(x + " + q + ")"
+                      : "Suma actual: p + q = " + (p+q) + " · producto: pq = " + (p*q);
+  st.className = "status " + (ok ? "ok" : "no");
+}
+function nuevoReto4(){
+  const r = RETOS[Math.floor(Math.random()*RETOS.length)];
+  S4.meta = { s: r[0] + r[1], pr: r[0] * r[1] };
+  $("goal4").textContent = "x² + " + S4.meta.s + "x + " + S4.meta.pr;
+  dib4();
+}
+$("p4i").addEventListener("input", e => { S4.p = +e.target.value; $("p4v").textContent = S4.p; dib4(); });
+$("q4i").addEventListener("input", e => { S4.q = +e.target.value; $("q4v").textContent = S4.q; dib4(); });
+$("new4").addEventListener("click", nuevoReto4);
+$("check4").addEventListener("click", () => {
+  const ok = (S4.p + S4.q === S4.meta.s) && (S4.p * S4.q === S4.meta.pr);
+  const st = $("st4");
+  st.textContent = ok ? "¡Correcto! x² + " + S4.meta.s + "x + " + S4.meta.pr + " = (x + " + S4.p + ")(x + " + S4.q + ")"
+    : "Todavía no. Necesita p + q = " + S4.meta.s + " y pq = " + S4.meta.pr +
+      "; ahora tiene " + (S4.p + S4.q) + " y " + (S4.p * S4.q) + ".";
+  st.className = "status " + (ok ? "ok" : "no");
+});
+document.querySelectorAll("#f4 .t").forEach(t => {
+  t.addEventListener("pointerenter", () => { S4.hl = t.dataset.k; dib4(); });
+  t.addEventListener("pointerleave", () => { S4.hl = null; dib4(); });
+});
+
+/* =================================================================
+   5 · (a + b)³  — proyección isométrica
+   ================================================================= */
+const S5 = { a: 3, b: 2, e: 0, hl: null, anim: 0 };
+function dib5(){
+  const svg = $("svg5"); svg.textContent = "";
+  const { a, b } = S5, n = a + b, E = S5.e / 100;
+  const u = 128 / n, CX = 225, CY = 232, K = 0.866, h = n / 2;
+  const proy = (x, y, z) => [CX + ((x - h) - (y - h)) * K * u, CY + (((x - h) + (y - h)) * 0.5 - (z - h)) * u];
+  const tipos = {
+    a3:  { c: css("--c-a2"),  lb:"a³"  },
+    a2b: { c: css("--c-ab"),  lb:"a²b" },
+    ab2: { c: css("--c-ab2"), lb:"ab²" },
+    b3:  { c: css("--c-b2"),  lb:"b³"  }
+  };
+  const cajas = [];
+  [[0,a],[a,n]].forEach((rx, i) => [[0,a],[a,n]].forEach((ry, j) => [[0,a],[a,n]].forEach((rz, k) => {
+    const cuantosB = (i?1:0) + (j?1:0) + (k?1:0);
+    const t = ["a3","a2b","ab2","b3"][cuantosB];
+    const cx = (rx[0]+rx[1])/2 - n/2, cy = (ry[0]+ry[1])/2 - n/2, cz = (rz[0]+rz[1])/2 - n/2;
+    const d = E * n * 0.38;
+    // Las dos piezas de la diagonal principal (a³ y b³) se desplazan sobre el eje
+    // que la proyección isométrica anula, así que se les refuerza la componente vertical.
+    const diag = (cuantosB === 0 || cuantosB === 3) ? 2.6 : 1;
+    cajas.push({ t, x0:rx[0], x1:rx[1], y0:ry[0], y1:ry[1], z0:rz[0], z1:rz[1],
+      ox: Math.sign(cx)*d, oy: Math.sign(cy)*d, oz: Math.sign(cz)*d*diag,
+      depth: rx[0]+ry[0]+rz[0] });
+  })));
+  cajas.sort((p, q) => p.depth - q.depth);
+  const sombra = { top: 1, der: .78, izq: .58 };
+  cajas.forEach(c => {
+    const X0 = c.x0 + c.ox, X1 = c.x1 + c.ox, Y0 = c.y0 + c.oy, Y1 = c.y1 + c.oy, Z0 = c.z0 + c.oz, Z1 = c.z1 + c.oz;
+    const base = tipos[c.t].c;
+    const apagado = S5.hl && S5.hl !== c.t;
+    const caras = [
+      { pts: [[X0,Y0,Z1],[X1,Y0,Z1],[X1,Y1,Z1],[X0,Y1,Z1]], f: sombra.top },
+      { pts: [[X1,Y0,Z1],[X1,Y1,Z1],[X1,Y1,Z0],[X1,Y0,Z0]], f: sombra.der },
+      { pts: [[X0,Y1,Z1],[X1,Y1,Z1],[X1,Y1,Z0],[X0,Y1,Z0]], f: sombra.izq }
+    ];
+    const g = mk("g", { style:"cursor:pointer;transition:.2s", opacity: apagado ? .22 : 1 });
+    caras.forEach(ca => {
+      const d = ca.pts.map(p => proy(p[0],p[1],p[2]).map(v => v.toFixed(1)).join(",")).join(" ");
+      g.appendChild(mk("polygon", { points:d, fill: oscurecer(base, ca.f),
+        stroke: css("--surface"), "stroke-width":1.4, "stroke-linejoin":"round" }));
+    });
+    g.addEventListener("pointerenter", () => { S5.hl = c.t; dib5(); });
+    g.addEventListener("pointerleave", () => { S5.hl = null; dib5(); });
+    svg.appendChild(g);
+  });
+  texto(svg, 225, 488, "Arista total = a + b = " + n + "   ·   Volumen = " + (n*n*n),
+        { fill: css("--muted"), size:14.5, weight:650 });
+  const filas = [
+    ["a3","a³","1 pieza", a**3, tipos.a3.c],
+    ["a2b","3a²b","3 piezas de " + (a*a*b), 3*a*a*b, tipos.a2b.c],
+    ["ab2","3ab²","3 piezas de " + (a*b*b), 3*a*b*b, tipos.ab2.c],
+    ["b3","b³","1 pieza", b**3, tipos.b3.c]
+  ];
+  $("tb5").innerHTML =
+    "<tr><th>Término</th><th>Piezas</th><th style='text-align:right'>Volumen</th></tr>" +
+    filas.map(f => "<tr class='" + (S5.hl===f[0] ? "on" : "") + "'><td><i class='chip' style='background:" + f[4] +
+      "'></i>" + f[1] + "</td><td>" + f[2] + "</td><td style='text-align:right'>" + f[3] + "</td></tr>").join("") +
+    "<tr><td>(a + b)³</td><td>8 piezas</td><td style='text-align:right'>" + (n**3) + "</td></tr>";
+  $("n5").innerHTML = "(<b>" + a + "</b> + <b>" + b + "</b>)³ = " + a**3 + " + " + 3*a*a*b + " + " + 3*a*b*b +
+                      " + " + b**3 + " = <b>" + n**3 + "</b>";
+  document.querySelectorAll("#f5 .t").forEach(t => t.classList.toggle("on", S5.hl === t.dataset.k));
+}
+$("a5").addEventListener("input", e => { S5.a = +e.target.value; $("a5v").textContent = S5.a; dib5(); });
+$("b5").addEventListener("input", e => { S5.b = +e.target.value; $("b5v").textContent = S5.b; dib5(); });
+$("e5").addEventListener("input", e => { S5.e = +e.target.value; $("e5v").textContent = S5.e + "%"; dib5(); });
+$("anim5").addEventListener("click", () => {
+  cancelAnimationFrame(S5.anim);
+  const ida = S5.e < 50, t0 = performance.now(), ini = S5.e, fin = ida ? 100 : 0;
+  (function paso(ahora){
+    const k = Math.min(1, (ahora - t0) / 1200);
+    const e = k < .5 ? 2*k*k : 1 - Math.pow(-2*k + 2, 2)/2;
+    S5.e = Math.round(ini + (fin - ini) * e);
+    $("e5").value = S5.e; $("e5v").textContent = S5.e + "%"; dib5();
+    if (k < 1) S5.anim = requestAnimationFrame(paso);
+  })(t0);
+});
+document.querySelectorAll("#f5 .t").forEach(t => {
+  t.addEventListener("pointerenter", () => { S5.hl = t.dataset.k; dib5(); });
+  t.addEventListener("pointerleave", () => { S5.hl = null; dib5(); });
+});
+
+/* =================================================================
+   6 · Práctica
+   ================================================================= */
+const Q = { i: 0, ok: 0, racha: 0, actual: null, total: 10 };
+const az = (lo, hi) => lo + Math.floor(Math.random() * (hi - lo + 1));
+const sg = v => (v < 0 ? "− " + Math.abs(v) : "+ " + v);
+
+function generadores(){
+  return [
+    () => { // (Ax + B)²
+      const A = az(1,5), B = az(2,9);
+      const co = (A===1?"":A*A) + "x² + " + (2*A*B) + "x + " + (B*B);
+      return { q: "Desarrolle  (" + (A===1?"":A) + "x + " + B + ")²",
+        ops: [co,
+          (A===1?"":A*A) + "x² + " + (B*B),
+          (A===1?"":A*A) + "x² + " + (A*B) + "x + " + (B*B),
+          (A===1?"":A) + "x² + " + (2*A*B) + "x + " + (B*B)],
+        exp: ["Correcto. El cuadrado de una suma tiene tres términos: el cuadrado del primero, el doble producto y el cuadrado del segundo.",
+          "Falta el doble producto 2(" + A + "x)(" + B + ") = " + (2*A*B) + "x. Ése es el error más frecuente del tema.",
+          "El término central es el DOBLE producto: 2(" + A + "x)(" + B + ") = " + (2*A*B) + "x, no " + (A*B) + "x.",
+          "Al elevar " + A + "x al cuadrado también se eleva el coeficiente: (" + A + "x)² = " + (A*A) + "x²."] };
+    },
+    () => { // conjugados
+      const A = az(1,6), B = az(2,9);
+      return { q: "Desarrolle  (" + (A===1?"":A) + "x + " + B + ")(" + (A===1?"":A) + "x − " + B + ")",
+        ops: [(A*A) + "x² − " + (B*B),
+          (A*A) + "x² + " + (B*B),
+          (A*A) + "x² − " + (2*A*B) + "x − " + (B*B),
+          (A*A) + "x² − " + (B*B) + "x"],
+        exp: ["Correcto. En binomios conjugados los términos cruzados se cancelan y queda la diferencia de cuadrados.",
+          "El signo es negativo: el producto de conjugados da una RESTA de cuadrados.",
+          "Los términos cruzados se cancelan entre sí (+" + (A*B) + "x y −" + (A*B) + "x); no hay término lineal.",
+          "El segundo cuadrado es (" + B + ")² = " + (B*B) + ", un número, no un término con x."] };
+    },
+    () => { // factorizar trinomio
+      const p = az(1,9), q = az(1,9);
+      const s = p + q, pr = p * q;
+      return { q: "Factorice  x² + " + s + "x + " + pr,
+        ops: ["(x + " + p + ")(x + " + q + ")",
+          "(x + " + s + ")(x + " + pr + ")",
+          "(x − " + p + ")(x − " + q + ")",
+          "(x + " + p + ")²"],
+        exp: ["Correcto. Se buscan dos números cuya suma sea " + s + " y cuyo producto sea " + pr + ".",
+          "Confunde los papeles: " + s + " es la SUMA de los dos números y " + pr + " su PRODUCTO, no los números mismos.",
+          "Con ambos signos negativos el término lineal saldría −" + s + "x.",
+          "Sólo sería un binomio al cuadrado si el trinomio fuera cuadrado perfecto, y aquí " + p + " ≠ " + q + "."] };
+    },
+    () => { // término faltante
+      const B = az(2,9), A = az(1,4);
+      return { q: "Complete:   " + (A===1?"":A*A) + "x² + ______ + " + (B*B) + "  =  (" + (A===1?"":A) + "x + " + B + ")²",
+        ops: [(2*A*B) + "x", (A*B) + "x", (A*A*B*B) + "x", (B*B) + "x"],
+        exp: ["Correcto. El término central es el doble producto de los dos términos del binomio.",
+          "Falta el factor 2: el término central es el DOBLE producto.",
+          "Ése es el producto de los dos cuadrados, no el doble producto de las bases.",
+          "El doble producto usa ambos términos: 2(" + A + "x)(" + B + "), no sólo el segundo."] };
+    },
+    () => { // (a−b)²
+      const A = az(1,5), B = az(2,9);
+      return { q: "Desarrolle  (" + (A===1?"":A) + "x − " + B + ")²",
+        ops: [(A*A) + "x² − " + (2*A*B) + "x + " + (B*B),
+          (A*A) + "x² − " + (2*A*B) + "x − " + (B*B),
+          (A*A) + "x² + " + (2*A*B) + "x + " + (B*B),
+          (A*A) + "x² − " + (B*B)],
+        exp: ["Correcto. El último término siempre es positivo: es el cuadrado de un número.",
+          "El cuadrado de −" + B + " es +" + (B*B) + ". Ningún cuadrado real es negativo.",
+          "El término central hereda el signo menos del binomio: −" + (2*A*B) + "x.",
+          "Eso corresponde a binomios conjugados, no al cuadrado de una diferencia."] };
+    }
+  ];
+}
+function barajar(arr){
+  const idx = arr.map((_, i) => i);
+  for (let i = idx.length - 1; i > 0; i--){ const j = Math.floor(Math.random()*(i+1)); [idx[i], idx[j]] = [idx[j], idx[i]]; }
+  return idx;
+}
+function nuevaPregunta(){
+  const gens = generadores();
+  const g = gens[Math.floor(Math.random()*gens.length)]();
+  const orden = barajar(g.ops);
+  Q.actual = {
+    q: g.q,
+    ops: orden.map(i => g.ops[i]),
+    exp: orden.map(i => g.exp[i]),
+    correcta: orden.indexOf(0)
+  };
+  $("qtext").textContent = Q.actual.q;
+  $("qi").textContent = Q.i + 1;
+  const cont = $("qopts"); cont.innerHTML = "";
+  Q.actual.ops.forEach((o, i) => {
+    const b = document.createElement("button");
+    b.className = "opt"; b.type = "button";
+    b.innerHTML = "<span class='lt'>" + "ABCD"[i] + "</span><span>" + o + "</span>";
+    b.addEventListener("click", () => responder(i));
+    cont.appendChild(b);
+  });
+  const fb = $("qfb"); fb.className = "fb"; fb.textContent = "";
+  $("qnext").disabled = true;
+}
+function responder(i){
+  const botones = [...$("qopts").children];
+  botones.forEach(b => b.disabled = true);
+  const ok = i === Q.actual.correcta;
+  botones[i].classList.add(ok ? "good" : "bad");
+  if (!ok) botones[Q.actual.correcta].classList.add("good");
+  if (ok){ Q.ok++; Q.racha++; } else { Q.racha = 0; }
+  $("qok").textContent = Q.ok; $("qstreak").textContent = Q.racha;
+  const fb = $("qfb");
+  fb.className = "fb show " + (ok ? "ok" : "no");
+  fb.innerHTML = "<b>" + (ok ? "Correcto. " : "Revise. ") + "</b>" + Q.actual.exp[i] +
+    (ok ? "" : "<br><br><b>Respuesta correcta:</b> " + Q.actual.ops[Q.actual.correcta] + ". " + Q.actual.exp[Q.actual.correcta]);
+  $("qnext").disabled = false;
+}
+$("qnext").addEventListener("click", () => {
+  Q.i++;
+  if (Q.i >= Q.total){
+    $("qtext").textContent = "Serie terminada: " + Q.ok + " de " + Q.total + " correctas.";
+    $("qopts").innerHTML = "";
+    const fb = $("qfb"); fb.className = "fb show ok";
+    fb.innerHTML = Q.ok >= 8 ? "<b>Dominio sólido.</b> Puede pasar a factorización de trinomios y a la diferencia de cubos."
+      : Q.ok >= 6 ? "<b>Va bien.</b> Revise las demostraciones geométricas de los casos que falló y repita la serie."
+      : "<b>Conviene repasar.</b> Vuelva a las pestañas ① a ④ y observe qué término representa cada pieza antes de repetir la serie.";
+    $("qnext").disabled = true;
+    return;
+  }
+  nuevaPregunta();
+});
+$("qreset").addEventListener("click", () => { Q.i = 0; Q.ok = 0; Q.racha = 0;
+  $("qok").textContent = 0; $("qstreak").textContent = 0; nuevaPregunta(); });
+
+/* =================================================================
+   Créditos y citación
+   ================================================================= */
+const OBRA = {
+  autorApa: "Castillo Márquez, D. I.",
+  autorBib: "Castillo Márquez, Dalia Imelda",
+  anio: "2026",
+  titulo: "Productos notables: la demostración que se ve",
+  tipo: "Material didáctico interactivo",
+  version: "1.0",
+  institucion: "Universidad Autónoma de Nayarit, Unidad Académica de Ciencias Básicas e Ingenierías",
+  orcid: "https://orcid.org/0000-0002-5890-0437",
+  licencia: "CC BY-NC-SA 4.0",
+  /* Si publica la página en otra dirección, escríbala aquí. Cuando el sitio se sirve
+     por http(s) —GitHub Pages, por ejemplo— la URL real se detecta sola. */
+  urlFija: "https://daliacastillo.github.io/productos-notables/"
+};
+/* La URL canónica de la obra es la de GitHub Pages. Sólo se autodetecta cuando la
+   página se sirve desde github.io, para que la cita nunca apunte a otro servidor. */
+const sitio = /\.github\.io$/i.test(location.hostname)
+  ? location.origin + location.pathname.replace(/index\.html$/i, "")
+  : OBRA.urlFija;
+
+const citaApa = OBRA.autorApa + " (" + OBRA.anio + "). " + OBRA.titulo +
+  " (Versión " + OBRA.version + ") [" + OBRA.tipo + "]. " + OBRA.institucion + ". " + sitio;
+const citaBib =
+  "@misc{castillo" + OBRA.anio + "productosnotables,\n" +
+  "  author       = {Castillo Márquez, Dalia Imelda},\n" +
+  "  title        = {{" + OBRA.titulo + "}},\n" +
+  "  year         = {" + OBRA.anio + "},\n" +
+  "  version      = {" + OBRA.version + "},\n" +
+  "  howpublished = {" + OBRA.tipo + "},\n" +
+  "  institution  = {" + OBRA.institucion + "},\n" +
+  "  url          = {" + sitio + "},\n" +
+  "  note         = {ORCID: 0000-0002-5890-0437. Licencia " + OBRA.licencia + "}\n" +
+  "}";
+
+$("citaApa").innerHTML = OBRA.autorApa + " (" + OBRA.anio + "). <i>" + OBRA.titulo + "</i> (Versión " +
+  OBRA.version + ") [" + OBRA.tipo + "]. " + OBRA.institucion + ". " +
+  "<a href='" + sitio + "'>" + sitio + "</a>";
+$("bibTex").textContent = citaBib;
+
+function copiar(texto, etiqueta){
+  const avisar = ok => {
+    const m = $("copyMsg");
+    m.textContent = ok ? etiqueta + " copiada al portapapeles" : "No se pudo copiar; selecciónela a mano";
+    m.style.color = ok ? css("--c-pos") : css("--c-neg");
+    setTimeout(() => { m.textContent = ""; }, 3200);
+  };
+  if (navigator.clipboard && window.isSecureContext){
+    navigator.clipboard.writeText(texto).then(() => avisar(true), () => avisar(false));
+    return;
+  }
+  // Respaldo para cuando la página se abre como archivo local
+  try {
+    const ta = document.createElement("textarea");
+    ta.value = texto; ta.setAttribute("readonly", "");
+    ta.style.position = "fixed"; ta.style.opacity = "0";
+    document.body.appendChild(ta); ta.select();
+    const ok = document.execCommand("copy");
+    document.body.removeChild(ta); avisar(ok);
+  } catch (e){ avisar(false); }
+}
+$("copyApa").addEventListener("click", () => copiar(citaApa, "Cita APA"));
+$("copyBib").addEventListener("click", () => copiar(citaBib, "Entrada BibTeX"));
+$("credBtn").addEventListener("click", () => {
+  const cuerpo = $("credBody"), abierto = !cuerpo.hidden;
+  cuerpo.hidden = abierto;
+  $("credBtn").textContent = abierto ? "Mostrar créditos" : "Ocultar créditos";
+  $("credBtn").setAttribute("aria-expanded", String(!abierto));
+});
+
+/* ---------------- arranque ---------------- */
+function redibujarTodo(){ dib1(); dib2(); dib3(); dib4(); dib5(); }
+nuevoReto4();
+nuevaPregunta();
+redibujarTodo();
+window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => { pintarBoton(); redibujarTodo(); });
+window.addEventListener("resize", () => { /* los SVG son responsivos por viewBox */ });
+})();
+</script>
+</body>
+</html>

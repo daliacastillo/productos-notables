@@ -1,0 +1,33 @@
+cff-version: 1.2.0
+message: "Si utiliza este material, por favor cítelo como se indica a continuación."
+title: "Productos notables: la demostración que se ve"
+abstract: >-
+  Actividad web interactiva que demuestra geométricamente los productos notables:
+  cuadrado de una suma, cuadrado de una diferencia, binomios conjugados, producto
+  de binomios con término común y cubo de un binomio. Incluye una serie de práctica
+  autoevaluable en la que cada distractor corresponde a un error frecuente
+  documentado. Material de apoyo para la unidad 2 de Tópicos de Matemáticas,
+  Licenciatura en Matemáticas, Universidad Autónoma de Nayarit.
+type: software
+authors:
+  - family-names: "Castillo Márquez"
+    given-names: "Dalia Imelda"
+    orcid: "https://orcid.org/0000-0002-5890-0437"
+    affiliation: "Universidad Autónoma de Nayarit, Unidad Académica de Ciencias Básicas e Ingenierías"
+    country: MX
+version: "1.0.0"
+date-released: "2026-10-01"
+license: CC-BY-NC-SA-4.0
+keywords:
+  - productos notables
+  - demostración geométrica
+  - álgebra
+  - educación matemática
+  - recurso educativo abierto
+  - material didáctico interactivo
+  - binomio al cuadrado
+  - diferencia de cuadrados
+url: "https://daliacastillo.github.io/productos-notables/"
+repository-code: "https://github.com/daliacastillo/productos-notables"
+# Si registra la obra en Zenodo para obtener un DOI, descomente y complete la línea:
+# doi: "10.5281/zenodo.XXXXXXX"
