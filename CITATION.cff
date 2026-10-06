@@ -34,5 +34,12 @@ keywords:
   - álgebra simbólica
 url: "https://daliacastillo.github.io/productos-notables/"
 repository-code: "https://github.com/daliacastillo/productos-notables"
-# Si registra la obra en Zenodo para obtener un DOI, descomente y complete la línea:
-# doi: "10.5281/zenodo.XXXXXXX"
+# DOI de concepto: representa todas las versiones y siempre resuelve a la más reciente.
+doi: "10.5281/zenodo.23195334"
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.23195334"
+    description: "DOI de concepto (todas las versiones)"
+  - type: doi
+    value: "10.5281/zenodo.23195335"
+    description: "DOI de la versión 1.1.0"
