@@ -14,6 +14,8 @@
 <meta name="citation_author_institution" content="Universidad Autónoma de Nayarit, Unidad Académica de Ciencias Básicas e Ingenierías">
 <meta name="citation_publication_date" content="2026/10">
 <meta name="citation_language" content="es">
+<meta name="citation_doi" content="10.5281/zenodo.23195334">
+<meta name="DC.identifier" content="https://doi.org/10.5281/zenodo.23195334">
 <meta name="DC.title" content="Productos notables: la demostración que se ve">
 <meta name="DC.creator" content="Castillo Márquez, Dalia Imelda">
 <meta name="DC.publisher" content="Universidad Autónoma de Nayarit">
@@ -36,6 +38,7 @@
   "educationalUse": ["Instrucción", "Práctica", "Tarea"],
   "audience": { "@type": "EducationalAudience", "educationalRole": ["student", "teacher"] },
   "version": "1.1",
+  "identifier": "https://doi.org/10.5281/zenodo.23195334",
   "datePublished": "2026-10",
   "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
   "isAccessibleForFree": true,
@@ -593,6 +596,9 @@ details.bib pre{background:var(--soft); border:1px solid var(--line); border-rad
         </svg>
       </span>
       <a href="https://orcid.org/0000-0002-5890-0437" rel="noopener" target="_blank">0000-0002-5890-0437</a>
+    </p>
+    <p>DOI: <a href="https://doi.org/10.5281/zenodo.23195334" rel="noopener" target="_blank">10.5281/zenodo.23195334</a>
+      <span style="font-size:13.5px">(todas las versiones)</span>
     </p>
     <p>Versión 1.1 · octubre de 2026 · Licencia
       <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es" rel="license noopener" target="_blank">CC BY-NC-SA 4.0</a>
@@ -1177,6 +1183,7 @@ const OBRA = {
   institucion: "Universidad Autónoma de Nayarit, Unidad Académica de Ciencias Básicas e Ingenierías",
   orcid: "https://orcid.org/0000-0002-5890-0437",
   licencia: "CC BY-NC-SA 4.0",
+  doi: "10.5281/zenodo.23195334",
   /* Si publica la página en otra dirección, escríbala aquí. Cuando el sitio se sirve
      por http(s) —GitHub Pages, por ejemplo— la URL real se detecta sola. */
   urlFija: "https://daliacastillo.github.io/productos-notables/"
@@ -1188,7 +1195,7 @@ const sitio = /\.github\.io$/i.test(location.hostname)
   : OBRA.urlFija;
 
 const citaApa = OBRA.autorApa + " (" + OBRA.anio + "). " + OBRA.titulo +
-  " (Versión " + OBRA.version + ") [" + OBRA.tipo + "]. " + OBRA.institucion + ". " + sitio;
+  " (Versión " + OBRA.version + ") [" + OBRA.tipo + "]. " + OBRA.institucion + ". https://doi.org/" + OBRA.doi;
 const citaBib =
   "@misc{castillo" + OBRA.anio + "productosnotables,\n" +
   "  author       = {Castillo Márquez, Dalia Imelda},\n" +
@@ -1197,13 +1204,14 @@ const citaBib =
   "  version      = {" + OBRA.version + "},\n" +
   "  howpublished = {" + OBRA.tipo + "},\n" +
   "  institution  = {" + OBRA.institucion + "},\n" +
+  "  doi          = {" + OBRA.doi + "},\n" +
   "  url          = {" + sitio + "},\n" +
   "  note         = {ORCID: 0000-0002-5890-0437. Licencia " + OBRA.licencia + "}\n" +
   "}";
 
 $("citaApa").innerHTML = OBRA.autorApa + " (" + OBRA.anio + "). <i>" + OBRA.titulo + "</i> (Versión " +
   OBRA.version + ") [" + OBRA.tipo + "]. " + OBRA.institucion + ". " +
-  "<a href='" + sitio + "'>" + sitio + "</a>";
+  "<a href='https://doi.org/" + OBRA.doi + "'>https://doi.org/" + OBRA.doi + "</a>";
 $("bibTex").textContent = citaBib;
 
 function copiar(texto, etiqueta){
