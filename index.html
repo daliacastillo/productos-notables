@@ -28,14 +28,14 @@
   "@type": "LearningResource",
   "name": "Productos notables: la demostración que se ve",
   "alternateName": "Productos notables · demostración geométrica interactiva",
-  "description": "Actividad web interactiva que demuestra geométricamente los productos notables: cuadrado de una suma, cuadrado de una diferencia, binomios conjugados, producto de binomios con término común y cubo de un binomio, con una serie de práctica autoevaluable.",
+  "description": "Actividad web interactiva que demuestra geométricamente los productos notables: cuadrado de una suma, cuadrado de una diferencia, binomios conjugados, producto de binomios con término común y cubo de un binomio. Incluye un resolvedor simbólico que desarrolla y factoriza cualquier binomio o trinomio indicando la fórmula que aplica, y una serie de práctica autoevaluable.",
   "inLanguage": "es",
-  "learningResourceType": ["Actividad interactiva", "Demostración geométrica", "Autoevaluación"],
+  "learningResourceType": ["Actividad interactiva", "Demostración geométrica", "Resolvedor simbólico", "Autoevaluación"],
   "educationalLevel": "Licenciatura",
   "teaches": "Productos notables y su demostración geométrica",
   "educationalUse": ["Instrucción", "Práctica", "Tarea"],
   "audience": { "@type": "EducationalAudience", "educationalRole": ["student", "teacher"] },
-  "version": "1.0",
+  "version": "1.1",
   "datePublished": "2026-10",
   "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
   "isAccessibleForFree": true,
@@ -174,7 +174,7 @@ table.areas tr:last-child td{border-bottom:none; font-weight:800}
 table.areas tr.on td{background:var(--soft)}
 .chip{display:inline-block; width:13px; height:13px; border-radius:4px; margin-right:7px; vertical-align:-1px}
 
-/* ---------- pasos ---------- */
+  /* ---------- pasos ---------- */
 .steps{display:flex; flex-direction:column; gap:8px; margin-top:4px}
 .step{display:flex; gap:11px; align-items:flex-start; padding:10px 12px; border-radius:10px; border:1px solid transparent}
 .step .n{flex:0 0 auto; width:25px; height:25px; border-radius:50%; background:var(--soft); color:var(--muted);
@@ -218,6 +218,52 @@ table.areas tr.on td{background:var(--soft)}
 .status.ok{color:var(--c-pos)}
 .status.no{color:var(--muted)}
 
+
+/* ---------- apartado Resolver ---------- */
+.entrada{display:flex; gap:9px; flex-wrap:wrap}
+.entrada input{flex:1 1 260px; min-width:0; font:inherit; font-size:17px; padding:12px 14px;
+  border:1.5px solid var(--line); border-radius:11px; background:var(--surface); color:var(--ink)}
+.entrada input:focus{outline:2px solid var(--brand); outline-offset:1px; border-color:var(--brand)}
+.teclas{display:flex; gap:6px; flex-wrap:wrap; margin-top:11px}
+.teclas button{min-width:40px; padding:8px 11px; font:inherit; font-size:15.5px; font-weight:700;
+  border:1px solid var(--line); border-radius:9px; background:var(--soft); color:var(--ink); cursor:pointer}
+.teclas button:hover{border-color:var(--brand); color:var(--brand)}
+.teclas button.borrar{font-size:13.5px; font-weight:650; color:var(--muted)}
+.ejemplos{display:flex; gap:7px; flex-wrap:wrap}
+.ejemplos button{padding:7px 12px; font:inherit; font-size:14px; font-weight:650; cursor:pointer;
+  border:1px dashed var(--line); border-radius:999px; background:transparent; color:var(--brand-2)}
+.ejemplos button:hover{border-style:solid; border-color:var(--brand-2); background:var(--soft)}
+.card.res, .card.res-err{margin-top:18px}
+.card.res-err{border-color:var(--c-neg)}
+.res-cab{display:flex; gap:10px; flex-wrap:wrap; align-items:center; justify-content:space-between; margin-bottom:14px}
+.res-badge{margin:0; font-size:15.5px; font-weight:750; padding:7px 13px; border-radius:999px}
+.res-badge.ok{background:color-mix(in srgb, var(--c-pos) 15%, var(--surface)); color:var(--c-pos);
+  border:1px solid var(--c-pos)}
+.res-badge.neutro{background:var(--soft); color:var(--muted); border:1px solid var(--line)}
+.res-badge.err{background:color-mix(in srgb, var(--c-neg) 13%, var(--surface)); color:var(--c-neg);
+  border:1px solid var(--c-neg)}
+.res-modo{font-size:12px; letter-spacing:.1em; text-transform:uppercase; font-weight:750; color:var(--muted)}
+.res-rot{margin:16px 0 7px; font-size:12px; letter-spacing:.08em; text-transform:uppercase;
+  font-weight:750; color:var(--brand-2)}
+.res-formula{margin:0 0 4px}
+.res-msg{margin:0; font-size:15.5px; color:var(--ink)}
+.res-pista{margin:10px 0 0; font-size:14.5px; color:var(--muted)}
+.sust{display:flex; gap:9px; flex-wrap:wrap}
+.sust-par{display:inline-flex; align-items:center; gap:7px; background:var(--soft); border:1px solid var(--line);
+  border-radius:10px; padding:7px 13px; font-size:16px; font-variant-numeric:tabular-nums}
+.sust-par b{color:var(--brand); font-style:italic}
+.sust-par span{color:var(--muted)}
+table.pasos{width:100%; border-collapse:collapse; font-size:15px}
+table.pasos td{padding:9px 10px; border-bottom:1px solid var(--line); vertical-align:top}
+table.pasos tr:last-child td{border-bottom:none}
+table.pasos td:first-child{color:var(--muted); width:46%}
+table.pasos td:last-child{font-weight:700; color:var(--ink)}
+.res-final{display:flex; gap:12px; align-items:center; flex-wrap:wrap; margin-top:18px;
+  background:var(--brand); color:#fff; border-radius:12px; padding:14px 16px}
+.res-final span{font-size:11.5px; letter-spacing:.12em; font-weight:750; color:#E6E1FF}
+.res-final b{font-size:clamp(16px,2.6vw,20px); word-break:break-word}
+.res-comp{margin:13px 0 0; font-size:14.5px; color:var(--muted)}
+.res-comp b{color:var(--ink); font-variant-numeric:tabular-nums}
 
 /* ---------- créditos y citación ---------- */
 .cred-bar{background:var(--soft); border-top:1px solid var(--line); border-bottom:1px solid var(--line); margin-top:4px;
@@ -270,7 +316,8 @@ details.bib pre{background:var(--soft); border:1px solid var(--line); border-rad
     <button role="tab" aria-selected="false" data-go="p3">③ (a + b)(a − b)</button>
     <button role="tab" aria-selected="false" data-go="p4">④ (x + p)(x + q)</button>
     <button role="tab" aria-selected="false" data-go="p5">⑤ (a + b)³</button>
-    <button role="tab" aria-selected="false" data-go="p6">⑥ Práctica</button>
+    <button role="tab" aria-selected="false" data-go="p7">⑥ Resolver</button>
+    <button role="tab" aria-selected="false" data-go="p6">⑦ Práctica</button>
   </div>
 </nav>
 
@@ -452,7 +499,60 @@ details.bib pre{background:var(--soft); border:1px solid var(--line); border-rad
   </div>
 </section>
 
-<!-- ============ 6 ============ -->
+<!-- ============ 6 · Resolver ============ -->
+<section class="panel" id="p7" hidden>
+  <h2>Resolver paso a paso</h2>
+  <p class="lead">Escriba un binomio, un trinomio o un producto. La página identifica de qué producto notable
+    se trata, muestra <b>la fórmula que aplica</b> y desarrolla término a término. Si escribe un polinomio,
+    intenta factorizarlo.</p>
+
+  <div class="card">
+    <h3>Su expresión</h3>
+    <div class="entrada">
+      <input id="expr" type="text" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false"
+             placeholder="(2x + 3)²      x² + 10x + 25      (a + b)(a − b)">
+      <button class="btn primary" id="btnResolver" type="button">Resolver</button>
+    </div>
+    <div class="teclas" id="teclas">
+      <button type="button" data-k="(">(</button>
+      <button type="button" data-k=")">)</button>
+      <button type="button" data-k="²">²</button>
+      <button type="button" data-k="³">³</button>
+      <button type="button" data-k="+">+</button>
+      <button type="button" data-k="−">−</button>
+      <button type="button" data-k="x">x</button>
+      <button type="button" data-k="y">y</button>
+      <button type="button" data-k="a">a</button>
+      <button type="button" data-k="b">b</button>
+      <button type="button" data-k="borrar" class="borrar">Limpiar</button>
+    </div>
+    <p class="res-rot" style="margin-top:14px">Pruebe con</p>
+    <div class="ejemplos" id="ejemplos">
+      <button type="button">(2x + 3)²</button>
+      <button type="button">(3a − 2b)²</button>
+      <button type="button">(x + 5)(x − 5)</button>
+      <button type="button">(x + 3)(x + 7)</button>
+      <button type="button">(a + b)³</button>
+      <button type="button">(x + y + z)²</button>
+      <button type="button">x² + 10x + 25</button>
+      <button type="button">9x² − 16</button>
+      <button type="button">x² + 7x + 12</button>
+      <button type="button">6x² + 7x − 3</button>
+      <button type="button">x³ − 8</button>
+      <button type="button">2x² + 8x</button>
+    </div>
+  </div>
+
+  <div id="salida"></div>
+
+  <div class="note"><b>Qué reconoce.</b> Para desarrollar: cuadrado de una suma y de una diferencia, cubo de una
+    suma y de una diferencia, cuadrado de un trinomio, binomios conjugados y binomios con término común.
+    Para factorizar: factor común, diferencia de cuadrados, suma y diferencia de cubos, trinomio cuadrado
+    perfecto y trinomio de segundo grado con raíces racionales. Cuando la expresión no encaja en ninguno,
+    lo dice y de todos modos entrega el desarrollo completo.</div>
+</section>
+
+<!-- ============ 7 · Práctica ============ -->
 <section class="panel" id="p6" hidden>
   <h2>Práctica</h2>
   <p class="lead">Diez reactivos generados al azar. Cada distractor corresponde a un error frecuente, de modo que la
@@ -494,7 +594,7 @@ details.bib pre{background:var(--soft); border:1px solid var(--line); border-rad
       </span>
       <a href="https://orcid.org/0000-0002-5890-0437" rel="noopener" target="_blank">0000-0002-5890-0437</a>
     </p>
-    <p>Versión 1.0 · octubre de 2026 · Licencia
+    <p>Versión 1.1 · octubre de 2026 · Licencia
       <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es" rel="license noopener" target="_blank">CC BY-NC-SA 4.0</a>
     </p>
     <p class="cita">Cómo citar: <span id="citaApa"></span></p>
@@ -1073,7 +1173,7 @@ const OBRA = {
   anio: "2026",
   titulo: "Productos notables: la demostración que se ve",
   tipo: "Material didáctico interactivo",
-  version: "1.0",
+  version: "1.1",
   institucion: "Universidad Autónoma de Nayarit, Unidad Académica de Ciencias Básicas e Ingenierías",
   orcid: "https://orcid.org/0000-0002-5890-0437",
   licencia: "CC BY-NC-SA 4.0",
@@ -1135,6 +1235,720 @@ $("credBtn").addEventListener("click", () => {
   $("credBtn").textContent = abierto ? "Mostrar créditos" : "Ocultar créditos";
   $("credBtn").setAttribute("aria-expanded", String(!abierto));
 });
+
+/* =================================================================
+   Motor algebraico del apartado Resolver
+   Racionales exactos · polinomios multivariados · analizador
+   ================================================================= */
+/* ---------- Racionales exactos ---------- */
+function mcd(a, b){ a = Math.abs(a); b = Math.abs(b); while (b){ const t = a % b; a = b; b = t; } return a || 1; }
+function R(n, d){
+  d = (d === undefined) ? 1 : d;
+  if (d === 0) throw new Error("No se puede dividir entre cero.");
+  if (!Number.isFinite(n) || !Number.isFinite(d)) throw new Error("Número fuera de rango.");
+  if (d < 0){ n = -n; d = -d; }
+  const g = mcd(n, d);
+  return { n: n / g, d: d / g };
+}
+const rAdd = (x, y) => R(x.n * y.d + y.n * x.d, x.d * y.d);
+const rSub = (x, y) => R(x.n * y.d - y.n * x.d, x.d * y.d);
+const rMul = (x, y) => R(x.n * y.n, x.d * y.d);
+const rDiv = (x, y) => { if (y.n === 0) throw new Error("No se puede dividir entre cero."); return R(x.n * y.d, x.d * y.n); };
+const rNeg = x => R(-x.n, x.d);
+const rEq  = (x, y) => x.n === y.n && x.d === y.d;
+const rCero = x => x.n === 0;
+const rEnt  = x => x.d === 1;
+const rSig  = x => Math.sign(x.n);
+const rAbs  = x => R(Math.abs(x.n), x.d);
+function rPow(x, e){ let r = R(1); for (let i = 0; i < e; i++) r = rMul(r, x); return r; }
+function rTxt(x){ return x.d === 1 ? String(x.n) : x.n + "/" + x.d; }
+function numTxt(v){ const t = (typeof v === "number") ? String(v) : rTxt(v); return t.replace(/^-/, "−"); }
+
+const esCuadradoEnt = k => { k = Math.abs(k); const r = Math.round(Math.sqrt(k)); return r * r === k ? r : null; };
+const esCuboEnt     = k => { const s = Math.sign(k); const r = Math.round(Math.cbrt(Math.abs(k))); return r * r * r === Math.abs(k) ? s * r : null; };
+function rRaiz2(x){ const a = esCuadradoEnt(x.n), b = esCuadradoEnt(x.d); return (a !== null && b !== null && x.n >= 0) ? R(a, b) : null; }
+function rRaiz3(x){ const a = esCuboEnt(x.n), b = esCuboEnt(x.d); return (a !== null && b !== null) ? R(a, b) : null; }
+
+/* ---------- 2. Polinomios multivariados ---------- */
+/* Término: { c: Racional, v: { x: 2, y: 1 } }   ·   Polinomio: array de términos */
+function claveVars(v){
+  const ks = Object.keys(v).filter(k => v[k] !== 0).sort();
+  return ks.map(k => k + "^" + v[k]).join("·");
+}
+function normaliza(terminos){
+  const mapa = new Map();
+  for (const t of terminos){
+    if (rCero(t.c)) continue;
+    const k = claveVars(t.v);
+    if (mapa.has(k)){ const e = mapa.get(k); e.c = rAdd(e.c, t.c); }
+    else {
+      const v = {}; for (const key in t.v) if (t.v[key] !== 0) v[key] = t.v[key];
+      mapa.set(k, { c: t.c, v });
+    }
+  }
+  return [...mapa.values()].filter(t => !rCero(t.c)).sort(cmpTerm);
+}
+function gradoTotal(t){ let g = 0; for (const k in t.v) g += t.v[k]; return g; }
+function cmpTerm(a, b){
+  const ga = gradoTotal(a), gb = gradoTotal(b);
+  if (ga !== gb) return gb - ga;                       // primero el grado mayor
+  const vs = [...new Set([...Object.keys(a.v), ...Object.keys(b.v)])].sort();
+  for (const k of vs){                                  // luego, exponente mayor de cada letra
+    const ea = a.v[k] || 0, eb = b.v[k] || 0;
+    if (ea !== eb) return eb - ea;
+  }
+  return 0;
+}
+const pCero = () => [];
+const pNum  = r => rCero(r) ? [] : [{ c: r, v: {} }];
+const pVar  = n => [{ c: R(1), v: { [n]: 1 } }];
+const pAdd  = (A, B) => normaliza([...A, ...B]);
+const pNeg  = A => A.map(t => ({ c: rNeg(t.c), v: t.v }));
+const pSub  = (A, B) => pAdd(A, pNeg(B));
+function pMul(A, B){
+  const out = [];
+  for (const a of A) for (const b of B){
+    const v = Object.assign({}, a.v);
+    for (const k in b.v) v[k] = (v[k] || 0) + b.v[k];
+    out.push({ c: rMul(a.c, b.c), v });
+  }
+  return normaliza(out);
+}
+function pPow(A, e){
+  if (e === 0) return pNum(R(1));
+  let r = A; for (let i = 1; i < e; i++) r = pMul(r, A);
+  return r;
+}
+function pDiv(A, B){
+  if (B.length !== 1) throw new Error("Sólo se admite dividir entre un término (monomio).");
+  const b = B[0];
+  return normaliza(A.map(a => {
+    const v = Object.assign({}, a.v);
+    for (const k in b.v){ v[k] = (v[k] || 0) - b.v[k]; if (v[k] < 0) throw new Error("La división deja exponentes negativos."); }
+    return { c: rDiv(a.c, b.c), v };
+  }));
+}
+const pIgual = (A, B) => pTxt(A) === pTxt(B);
+const esConstante = A => A.length === 0 || (A.length === 1 && gradoTotal(A[0]) === 0);
+const esMonomio   = A => A.length === 1;
+
+/* ---------- 3. Presentación ---------- */
+const SUP = { "0":"⁰","1":"¹","2":"²","3":"³","4":"⁴","5":"⁵","6":"⁶","7":"⁷","8":"⁸","9":"⁹" };
+const sup = n => String(n).split("").map(c => SUP[c] || c).join("");
+function varsTxt(v){
+  return Object.keys(v).sort().filter(k => v[k] !== 0)
+    .map(k => k + (v[k] === 1 ? "" : sup(v[k]))).join("");
+}
+function terminoTxt(t, primero){
+  const s = rSig(t.c), a = rAbs(t.c), vs = varsTxt(t.v);
+  let coef;
+  if (vs === "") coef = rTxt(a);
+  else if (rEq(a, R(1))) coef = "";
+  else if (a.d === 1) coef = String(a.n);
+  else coef = "(" + rTxt(a) + ")";
+  const cuerpo = coef + vs;
+  if (primero) return (s < 0 ? "−" : "") + cuerpo;
+  return (s < 0 ? " − " : " + ") + cuerpo;
+}
+function pTxt(A){
+  if (A.length === 0) return "0";
+  return A.map((t, i) => terminoTxt(t, i === 0)).join("");
+}
+/* Envuelve en paréntesis si el polinomio tiene más de un término o es negativo */
+function pTxtFactor(A){
+  if (A.length === 0) return "0";
+  if (A.length === 1 && rSig(A[0].c) > 0) return pTxt(A);
+  return "(" + pTxt(A) + ")";
+}
+
+/* ---------- 4. Analizador de expresiones ---------- */
+function normalizaEntrada(s){
+  return String(s)
+    .replace(/[−–—]/g, "-").replace(/[×·✕]/g, "*").replace(/[÷]/g, "/")
+    .replace(/²/g, "^2").replace(/³/g, "^3").replace(/⁴/g, "^4").replace(/⁵/g, "^5")
+    .replace(/⁶/g, "^6").replace(/⁷/g, "^7").replace(/⁸/g, "^8").replace(/⁹/g, "^9")
+    .replace(/\[/g, "(").replace(/\]/g, ")").replace(/\{/g, "(").replace(/\}/g, ")")
+    .replace(/,/g, ".").replace(/\s+/g, "");
+}
+function tokeniza(s){
+  const tk = []; let i = 0;
+  while (i < s.length){
+    const c = s[i];
+    if (/[0-9.]/.test(c)){
+      let j = i; while (j < s.length && /[0-9.]/.test(s[j])) j++;
+      const txt = s.slice(i, j);
+      if ((txt.match(/\./g) || []).length > 1) throw new Error("Número mal escrito: " + txt);
+      if (txt.includes(".")){
+        const dec = txt.split(".")[1].length;
+        tk.push({ t: "num", v: R(Math.round(parseFloat(txt) * Math.pow(10, dec)), Math.pow(10, dec)) });
+      } else tk.push({ t: "num", v: R(parseInt(txt, 10)) });
+      i = j;
+    } else if (/[a-zA-Zα-ωΑ-Ω]/.test(c)){ tk.push({ t: "var", v: c }); i++; }
+    else if ("+-*/^()".includes(c)){ tk.push({ t: c }); i++; }
+    else throw new Error("No reconozco el símbolo «" + c + "».");
+  }
+  return tk;
+}
+function analiza(entrada){
+  const s = normalizaEntrada(entrada);
+  if (!s) throw new Error("Escriba una expresión.");
+  const tk = tokeniza(s);
+  let p = 0;
+  const ver = () => tk[p];
+  const come = t => { if (tk[p] && tk[p].t === t){ p++; return true; } return false; };
+
+  function sumaResta(){
+    let n = producto();
+    while (ver() && (ver().t === "+" || ver().t === "-")){
+      const op = ver().t; p++;
+      n = { t: op === "+" ? "add" : "sub", l: n, r: producto() };
+    }
+    return n;
+  }
+  function producto(){
+    let n = unario();
+    for (;;){
+      if (come("*")) n = { t: "mul", l: n, r: unario() };
+      else if (come("/")) n = { t: "div", l: n, r: unario() };
+      else if (ver() && (ver().t === "num" || ver().t === "var" || ver().t === "(")){
+        n = { t: "mul", l: n, r: unario(), implicito: true };   // 2x, 3(x+1), (x+1)(x-1)
+      } else break;
+    }
+    return n;
+  }
+  function unario(){
+    if (come("-")) return { t: "neg", x: unario() };
+    if (come("+")) return unario();
+    return potencia();
+  }
+  function potencia(){
+    const b = atomo();
+    if (come("^")){
+      let signo = 1;
+      while (ver() && (ver().t === "-" || ver().t === "+")){ if (ver().t === "-") signo = -signo; p++; }
+      const e = ver();
+      if (!e || e.t !== "num" || !rEnt(e.v)) throw new Error("El exponente debe ser un número entero.");
+      p++;
+      const ex = signo * e.v.n;
+      if (ex < 0) throw new Error("Por ahora no admito exponentes negativos.");
+      if (ex > 8)  throw new Error("Por claridad, el exponente máximo es 8.");
+      return { t: "pow", b, e: ex };
+    }
+    return b;
+  }
+  function atomo(){
+    const c = ver();
+    if (!c) throw new Error("La expresión está incompleta.");
+    if (c.t === "num"){ p++; return { t: "num", v: c.v }; }
+    if (c.t === "var"){ p++; return { t: "var", v: c.v }; }
+    if (c.t === "("){
+      p++;
+      const n = sumaResta();
+      if (!come(")")) throw new Error("Falta cerrar un paréntesis.");
+      return { t: "par", x: n };
+    }
+    if (c.t === ")") throw new Error("Hay un paréntesis de cierre de más.");
+    throw new Error("No esperaba el símbolo «" + (c.v || c.t) + "».");
+  }
+
+  const raiz = sumaResta();
+  if (p < tk.length) throw new Error("Sobra algo al final de la expresión.");
+  return raiz;
+}
+
+/* ---------- 5. AST → polinomio ---------- */
+function evalua(n){
+  switch (n.t){
+    case "num": return pNum(n.v);
+    case "var": return pVar(n.v);
+    case "par": return evalua(n.x);
+    case "neg": return pNeg(evalua(n.x));
+    case "add": return pAdd(evalua(n.l), evalua(n.r));
+    case "sub": return pSub(evalua(n.l), evalua(n.r));
+    case "mul": return pMul(evalua(n.l), evalua(n.r));
+    case "div": return pDiv(evalua(n.l), evalua(n.r));
+    case "pow": return pPow(evalua(n.b), n.e);
+  }
+  throw new Error("Expresión no válida.");
+}
+
+/* ---------- 6. Estructura: partes de una suma ---------- */
+function quitaPar(n){ return n.t === "par" ? quitaPar(n.x) : n; }
+function partesSuma(nodo){
+  const n = quitaPar(nodo), out = [];
+  (function rec(x, s){
+    const y = quitaPar(x);
+    if (y.t === "add"){ rec(y.l, s); rec(y.r, s); }
+    else if (y.t === "sub"){ rec(y.l, s); rec(y.r, -s); }
+    else if (y.t === "neg"){ rec(y.x, -s); }
+    else out.push({ s, poly: evalua(y) });
+  })(n, 1);
+  return out.map(x => (x.s < 0 ? pNeg(x.poly) : x.poly));   // partes con signo incorporado
+}
+const esSuma = nodo => { const n = quitaPar(nodo); return n.t === "add" || n.t === "sub"; };
+
+/* ---------- 7. Identificación del producto notable (desarrollo) ---------- */
+function identificaDesarrollo(ast){
+  const n = quitaPar(ast);
+
+  /* (A ± B)^2 , (A ± B)^3 , (A + B + C)^2 */
+  if (n.t === "pow" && esSuma(n.b)){
+    const P = partesSuma(n.b);
+    if (P.length === 2 && n.e === 2){
+      const [A, B] = P, neg = rSig(B[0].c) < 0, b = neg ? pNeg(B) : B;
+      return {
+        clave: neg ? "cuad-dif" : "cuad-suma",
+        nombre: neg ? "Cuadrado de una diferencia" : "Cuadrado de una suma",
+        formula: neg ? "(a − b)² = a² − 2ab + b²" : "(a + b)² = a² + 2ab + b²",
+        pestana: neg ? "p2" : "p1",
+        sust: [["a", pTxt(A)], ["b", pTxt(b)]],
+        pasos: [
+          ["a² = (" + pTxt(A) + ")²", pTxt(pPow(A, 2))],
+          [(neg ? "−2ab = −2(" : "2ab = 2(") + pTxt(A) + ")(" + pTxt(b) + ")",
+           pTxt(pMul(pNum(R(neg ? -2 : 2)), pMul(A, b)))],
+          ["b² = (" + pTxt(b) + ")²", pTxt(pPow(b, 2))]
+        ]
+      };
+    }
+    if (P.length === 2 && n.e === 3){
+      const [A, B] = P, neg = rSig(B[0].c) < 0, b = neg ? pNeg(B) : B;
+      return {
+        clave: neg ? "cubo-dif" : "cubo-suma",
+        nombre: neg ? "Cubo de una diferencia" : "Cubo de una suma",
+        formula: neg ? "(a − b)³ = a³ − 3a²b + 3ab² − b³" : "(a + b)³ = a³ + 3a²b + 3ab² + b³",
+        pestana: "p5",
+        sust: [["a", pTxt(A)], ["b", pTxt(b)]],
+        pasos: [
+          ["a³", pTxt(pPow(A, 3))],
+          [(neg ? "−3a²b" : "3a²b"), pTxt(pMul(pNum(R(neg ? -3 : 3)), pMul(pPow(A, 2), b)))],
+          ["3ab²", pTxt(pMul(pNum(R(3)), pMul(A, pPow(b, 2))))],
+          [(neg ? "−b³" : "b³"), pTxt(neg ? pNeg(pPow(b, 3)) : pPow(b, 3))]
+        ]
+      };
+    }
+    if (P.length === 3 && n.e === 2){
+      const [A, B, C] = P;
+      return {
+        clave: "cuad-trinomio",
+        nombre: "Cuadrado de un trinomio",
+        formula: "(a + b + c)² = a² + b² + c² + 2ab + 2ac + 2bc",
+        pestana: null,
+        sust: [["a", pTxt(A)], ["b", pTxt(B)], ["c", pTxt(C)]],
+        pasos: [
+          ["a² + b² + c²", pTxt(pAdd(pAdd(pPow(A, 2), pPow(B, 2)), pPow(C, 2)))],
+          ["2ab", pTxt(pMul(pNum(R(2)), pMul(A, B)))],
+          ["2ac", pTxt(pMul(pNum(R(2)), pMul(A, C)))],
+          ["2bc", pTxt(pMul(pNum(R(2)), pMul(B, C)))]
+        ]
+      };
+    }
+  }
+
+  /* Productos de dos binomios */
+  if (n.t === "mul" && esSuma(n.l) && esSuma(n.r)){
+    const P = partesSuma(n.l), Q = partesSuma(n.r);
+    if (P.length === 2 && Q.length === 2){
+      const [p1, p2] = P, [q1, q2] = Q;
+      /* mismo binomio dos veces → cuadrado */
+      if ((pIgual(p1, q1) && pIgual(p2, q2)) || (pIgual(p1, q2) && pIgual(p2, q1))){
+        return identificaDesarrollo({ t: "pow", b: n.l, e: 2 });
+      }
+      /* conjugados: coinciden en un término y son opuestos en el otro */
+      const conj =
+        (pIgual(p1, q1) && pIgual(p2, pNeg(q2))) ? [p1, p2] :
+        (pIgual(p1, q2) && pIgual(p2, pNeg(q1))) ? [p1, p2] :
+        (pIgual(p2, q2) && pIgual(p1, pNeg(q1))) ? [p2, p1] :
+        (pIgual(p2, q1) && pIgual(p1, pNeg(q2))) ? [p2, p1] : null;
+      if (conj){
+        const A = conj[0], B0 = conj[1], B = rSig(B0[0].c) < 0 ? pNeg(B0) : B0;
+        return {
+          clave: "conjugados",
+          nombre: "Producto de binomios conjugados",
+          formula: "(a + b)(a − b) = a² − b²",
+          pestana: "p3",
+          sust: [["a", pTxt(A)], ["b", pTxt(B)]],
+          pasos: [
+            ["a² = (" + pTxt(A) + ")²", pTxt(pPow(A, 2))],
+            ["−b² = −(" + pTxt(B) + ")²", pTxt(pNeg(pPow(B, 2)))],
+            ["Los términos cruzados se cancelan", "+" + pTxt(pMul(A, B)) + " y −" + pTxt(pMul(A, B))]
+          ]
+        };
+      }
+      /* término común: (x + p)(x + q) */
+      const comun =
+        (pIgual(p1, q1) && esConstante(p2) && esConstante(q2)) ? [p1, p2, q2] :
+        (pIgual(p1, q2) && esConstante(p2) && esConstante(q1)) ? [p1, p2, q1] :
+        (pIgual(p2, q2) && esConstante(p1) && esConstante(q1)) ? [p2, p1, q1] :
+        (pIgual(p2, q1) && esConstante(p1) && esConstante(q2)) ? [p2, p1, q2] : null;
+      if (comun){
+        const [X, Pc, Qc] = comun;
+        return {
+          clave: "comun",
+          nombre: "Producto de binomios con término común",
+          formula: "(x + p)(x + q) = x² + (p + q)x + pq",
+          pestana: "p4",
+          sust: [["x", pTxt(X)], ["p", pTxt(Pc)], ["q", pTxt(Qc)]],
+          pasos: [
+            ["x²", pTxt(pPow(X, 2))],
+            ["(p + q)x", pTxt(pMul(pAdd(Pc, Qc), X))],
+            ["pq", pTxt(pMul(Pc, Qc))]
+          ]
+        };
+      }
+    }
+  }
+  return null;
+}
+
+/* ---------- 8. Factorización ---------- */
+function raizMonomio(t, n){           // raíz n-ésima exacta de un término
+  const c = n === 2 ? rRaiz2(t.c) : rRaiz3(t.c);
+  if (c === null) return null;
+  const v = {};
+  for (const k in t.v){ if (t.v[k] % n !== 0) return null; v[k] = t.v[k] / n; }
+  return [{ c, v }];
+}
+function contenido(A){                 // factor común (coeficiente y variables)
+  if (A.length === 0) return null;
+  let num = Math.abs(A[0].c.n), den = A[0].c.d;
+  for (const t of A){ num = mcd(num, t.c.n); den = den * t.c.d / mcd(den, t.c.d); }
+  const vars = {};
+  for (const k in A[0].v) vars[k] = A[0].v[k];
+  for (const t of A) for (const k in vars) vars[k] = Math.min(vars[k], t.v[k] || 0);
+  for (const k in vars) if (vars[k] === 0) delete vars[k];
+  const c = R(num, den);
+  if (rEq(c, R(1)) && Object.keys(vars).length === 0) return null;
+  return [{ c, v: vars }];
+}
+function factoriza(A){
+  if (A.length === 0) return null;
+  const pasos = [];
+  let P = A, fc = null;
+
+  const com = contenido(A);
+  if (com && !(rEq(com[0].c, R(1)) && Object.keys(com[0].v).length === 0)){
+    fc = com; P = pDiv(A, com);
+    pasos.push(["Factor común", pTxt(com) + " · (" + pTxt(P) + ")"]);
+  }
+  const envuelve = txt => fc ? pTxtFactor(fc) + txt : txt;
+
+  /* dos términos */
+  if (P.length === 2){
+    const [t1, t2] = P;
+    const opuestos = rSig(t1.c) * rSig(t2.c) < 0;
+    if (opuestos){
+      const pos = rSig(t1.c) > 0 ? t1 : t2, neg = rSig(t1.c) > 0 ? t2 : t1;
+      const a = raizMonomio(pos, 2), b = raizMonomio({ c: rAbs(neg.c), v: neg.v }, 2);
+      if (a && b) return {
+        clave: "dif-cuadrados", nombre: "Diferencia de cuadrados",
+        formula: "a² − b² = (a + b)(a − b)", pestana: "p3",
+        sust: [["a", pTxt(a)], ["b", pTxt(b)]],
+        pasos: pasos.concat([
+          ["√(" + pTxt([pos]) + ")", pTxt(a)],
+          ["√(" + pTxt([{ c: rAbs(neg.c), v: neg.v }]) + ")", pTxt(b)]
+        ]),
+        resultado: envuelve(pTxtFactor(pAdd(a, b)) + pTxtFactor(pSub(a, b)))
+      };
+      const a3 = raizMonomio(pos, 3), b3 = raizMonomio({ c: rAbs(neg.c), v: neg.v }, 3);
+      if (a3 && b3) return {
+        clave: "dif-cubos", nombre: "Diferencia de cubos",
+        formula: "a³ − b³ = (a − b)(a² + ab + b²)", pestana: null,
+        sust: [["a", pTxt(a3)], ["b", pTxt(b3)]],
+        pasos: pasos.concat([["∛(" + pTxt([pos]) + ")", pTxt(a3)], ["∛(" + pTxt([{ c: rAbs(neg.c), v: neg.v }]) + ")", pTxt(b3)]]),
+        resultado: envuelve(pTxtFactor(pSub(a3, b3)) +
+          "(" + pTxt(pAdd(pAdd(pPow(a3, 2), pMul(a3, b3)), pPow(b3, 2))) + ")")
+      };
+    } else if (rSig(t1.c) > 0){
+      const a3 = raizMonomio(t1, 3), b3 = raizMonomio(t2, 3);
+      if (a3 && b3) return {
+        clave: "suma-cubos", nombre: "Suma de cubos",
+        formula: "a³ + b³ = (a + b)(a² − ab + b²)", pestana: null,
+        sust: [["a", pTxt(a3)], ["b", pTxt(b3)]],
+        pasos: pasos.concat([["∛(" + pTxt([t1]) + ")", pTxt(a3)], ["∛(" + pTxt([t2]) + ")", pTxt(b3)]]),
+        resultado: envuelve(pTxtFactor(pAdd(a3, b3)) +
+          "(" + pTxt(pSub(pAdd(pPow(a3, 2), pPow(b3, 2)), pMul(a3, b3))) + ")")
+      };
+    }
+  }
+
+  /* tres términos */
+  if (P.length === 3){
+    const [t1, t2, t3] = P;
+    /* trinomio cuadrado perfecto */
+    if (rSig(t1.c) > 0 && rSig(t3.c) > 0){
+      const a = raizMonomio(t1, 2), b = raizMonomio(t3, 2);
+      if (a && b){
+        const dobleP = pMul(pNum(R(2)), pMul(a, b));
+        const centro = [t2];
+        if (pIgual(centro, dobleP) || pIgual(centro, pNeg(dobleP))){
+          const menos = rSig(t2.c) < 0;
+          return {
+            clave: menos ? "tcp-dif" : "tcp-suma",
+            nombre: "Trinomio cuadrado perfecto",
+            formula: menos ? "a² − 2ab + b² = (a − b)²" : "a² + 2ab + b² = (a + b)²",
+            pestana: menos ? "p2" : "p1",
+            sust: [["a", pTxt(a)], ["b", pTxt(b)]],
+            pasos: pasos.concat([
+              ["√(" + pTxt([t1]) + ")", pTxt(a)],
+              ["√(" + pTxt([t3]) + ")", pTxt(b)],
+              [menos ? "Comprobación: −2ab" : "Comprobación: 2ab",
+               pTxt(menos ? pNeg(dobleP) : dobleP) + " — coincide con el término central"]
+            ]),
+            resultado: envuelve("(" + pTxt(menos ? pSub(a, b) : pAdd(a, b)) + ")²")
+          };
+        }
+      }
+    }
+    /* trinomio de segundo grado en una variable */
+    const vs = new Set(); P.forEach(t => Object.keys(t.v).forEach(k => vs.add(k)));
+    if (vs.size === 1){
+      const x = [...vs][0];
+      const g = t => t.v[x] || 0;
+      if (g(t1) === 2 && g(t2) === 1 && g(t3) === 0 && rEnt(t1.c) && rEnt(t2.c) && rEnt(t3.c)){
+        const a = t1.c.n, b = t2.c.n, c = t3.c.n, disc = b * b - 4 * a * c;
+        const r = esCuadradoEnt(disc);
+        if (disc >= 0 && r !== null){
+          /* a x² + b x + c = a (x − r1)(x − r2); se busca la forma con enteros */
+          const X = pVar(x);
+          const f1 = pSub(pMul(pNum(R(2 * a)), X), pNum(R(-b + r)));   // 2a x − (−b+r)
+          const f2 = pSub(pMul(pNum(R(2 * a)), X), pNum(R(-b - r)));
+          const k1 = contenido(f1) || pNum(R(1)), k2 = contenido(f2) || pNum(R(1));
+          const g1 = pDiv(f1, k1), g2 = pDiv(f2, k2);
+          /* el escalar que falta se deduce comparando con el polinomio original */
+          const cand = pMul(g1, g2);
+          const factorEscala = rDiv(P[0].c, cand[0].c);
+          const esc = pNum(factorEscala);
+          const prod = pMul(esc, cand);
+          if (pIgual(prod, P)){
+            const escTxt = rEq(factorEscala, R(1)) ? "" : pTxtFactor(esc);
+            return {
+              clave: a === 1 ? "trinomio" : "trinomio-a",
+              nombre: a === 1 ? "Trinomio de la forma x² + bx + c" : "Trinomio de la forma ax² + bx + c",
+              formula: a === 1 ? "x² + (p + q)x + pq = (x + p)(x + q)" : "ax² + bx + c = a(x − r₁)(x − r₂)",
+              pestana: a === 1 ? "p4" : null,
+              sust: a === 1
+                ? [["p + q", numTxt(b)], ["p · q", numTxt(c)]]
+                : [["a", numTxt(a)], ["b", numTxt(b)], ["c", numTxt(c)]],
+              pasos: pasos.concat(a === 1
+                ? [["Se buscan dos números cuya suma sea " + numTxt(b) + " y cuyo producto sea " + numTxt(c),
+                    "p = " + numTxt((b - r) / 2) + " ,  q = " + numTxt((b + r) / 2)]]
+                : [["Discriminante b² − 4ac", numTxt(disc) + " = " + r + "²"],
+                   ["Raíces", "x = " + numTxt(R(-b + r, 2 * a)) + "  ,  x = " + numTxt(R(-b - r, 2 * a))]]),
+              resultado: envuelve(escTxt + pTxtFactor(g1) + pTxtFactor(g2))
+            };
+          }
+        }
+      }
+    }
+  }
+
+  if (fc) return {
+    clave: "factor-comun", nombre: "Factor común",
+    formula: "ab + ac = a(b + c)", pestana: null,
+    sust: [["Factor común", pTxt(fc)]],
+    pasos, resultado: pTxtFactor(fc) + "(" + pTxt(P) + ")"
+  };
+  return null;
+}
+
+/* ---------- 9. Punto de entrada ---------- */
+function resolver(entrada){
+  const ast = analiza(entrada);
+  const poly = evalua(ast);
+  const desarrollo = identificaDesarrollo(ast);
+  const n = quitaPar(ast);
+  const esProducto = n.t === "pow" || n.t === "mul" || n.t === "div";
+
+  if (esProducto){
+    return {
+      modo: "desarrollar",
+      entrada: pTxt(poly),
+      resultado: pTxt(poly),
+      id: desarrollo,
+      poly
+    };
+  }
+  const f = factoriza(poly);
+  return { modo: "factorizar", entrada: pTxt(poly), resultado: f ? f.resultado : null, id: f, poly };
+}
+
+/* ---------- 10. Comprobación numérica ---------- */
+function evalPoly(A, valores){
+  let s = 0;
+  for (const t of A){
+    let v = t.c.n / t.c.d;
+    for (const k in t.v) v *= Math.pow(valores[k] === undefined ? 1 : valores[k], t.v[k]);
+    s += v;
+  }
+  return s;
+}
+
+
+/* ---------- Evaluación numérica directa del AST (comprobación independiente) ---------- */
+function evalAstNum(n, val){
+  switch (n.t){
+    case "num": return n.v.n / n.v.d;
+    case "var": return val[n.v] === undefined ? 1 : val[n.v];
+    case "par": return evalAstNum(n.x, val);
+    case "neg": return -evalAstNum(n.x, val);
+    case "add": return evalAstNum(n.l, val) + evalAstNum(n.r, val);
+    case "sub": return evalAstNum(n.l, val) - evalAstNum(n.r, val);
+    case "mul": return evalAstNum(n.l, val) * evalAstNum(n.r, val);
+    case "div": return evalAstNum(n.l, val) / evalAstNum(n.r, val);
+    case "pow": return Math.pow(evalAstNum(n.b, val), n.e);
+  }
+  return NaN;
+}
+function variablesDe(A){ const s = new Set(); A.forEach(t => Object.keys(t.v).forEach(k => s.add(k))); return [...s].sort(); }
+
+/* ===================================================================
+   Apartado ⑥ · Resolver — interfaz
+   =================================================================== */
+const FORMULA_HTML = {
+  "cuad-suma":   '(a + b)² = <span class="t t-a2">a²</span> + <span class="t t-ab">2ab</span> + <span class="t t-b2">b²</span>',
+  "cuad-dif":    '(a − b)² = <span class="t t-a2">a²</span> − <span class="t t-ab">2ab</span> + <span class="t t-b2">b²</span>',
+  "cubo-suma":   '(a + b)³ = <span class="t t-a2">a³</span> + <span class="t t-ab">3a²b</span> + <span class="t t-ab2">3ab²</span> + <span class="t t-b2">b³</span>',
+  "cubo-dif":    '(a − b)³ = <span class="t t-a2">a³</span> − <span class="t t-ab">3a²b</span> + <span class="t t-ab2">3ab²</span> − <span class="t t-b2">b³</span>',
+  "cuad-trinomio":'(a + b + c)² = <span class="t t-a2">a² + b² + c²</span> + <span class="t t-ab">2ab + 2ac + 2bc</span>',
+  "conjugados":  '(a + b)(a − b) = <span class="t t-a2">a²</span> − <span class="t t-b2">b²</span>',
+  "comun":       '(x + p)(x + q) = <span class="t t-a2">x²</span> + <span class="t t-ab">(p + q)x</span> + <span class="t t-b2">pq</span>',
+  "tcp-suma":    '<span class="t t-a2">a²</span> + <span class="t t-ab">2ab</span> + <span class="t t-b2">b²</span> = (a + b)²',
+  "tcp-dif":     '<span class="t t-a2">a²</span> − <span class="t t-ab">2ab</span> + <span class="t t-b2">b²</span> = (a − b)²',
+  "dif-cuadrados":'<span class="t t-a2">a²</span> − <span class="t t-b2">b²</span> = (a + b)(a − b)',
+  "dif-cubos":   '<span class="t t-a2">a³</span> − <span class="t t-b2">b³</span> = (a − b)(a² + ab + b²)',
+  "suma-cubos":  '<span class="t t-a2">a³</span> + <span class="t t-b2">b³</span> = (a + b)(a² − ab + b²)',
+  "trinomio":    '<span class="t t-a2">x²</span> + <span class="t t-ab">(p + q)x</span> + <span class="t t-b2">pq</span> = (x + p)(x + q)',
+  "trinomio-a":  '<span class="t t-a2">ax²</span> + <span class="t t-ab">bx</span> + <span class="t t-b2">c</span> = a(x − r₁)(x − r₂),  con r₁ y r₂ las raíces',
+  "factor-comun":'ab + ac = a(b + c)'
+};
+const bonito = t => String(t).trim()
+  .replace(/\^2/g, "²").replace(/\^3/g, "³").replace(/\^4/g, "⁴")
+  .replace(/\*/g, "·").replace(/-/g, "−").replace(/\s+/g, " ");
+const esc = s => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+
+function tarjetaError(msg, pista){
+  return '<div class="card res-err">' +
+    '<p class="res-badge err">No pude leer la expresión</p>' +
+    '<p class="res-msg">' + esc(msg) + '</p>' +
+    (pista ? '<p class="res-pista">' + pista + '</p>' : '') + '</div>';
+}
+
+/* Comprobación numérica independiente: evalúa los dos lados de la identidad
+   por caminos distintos y con valores que no la anulen. */
+function comprobacion(vars, fIzq, fDer){
+  if (vars.length === 0 || vars.length > 3) return null;
+  const juegos = [[2,3,5],[3,5,2],[5,2,7],[4,7,3],[7,3,2]];
+  let val = null, izq = 0, der = 0, mejor = -1;
+  for (const base of juegos){
+    const v = {}; vars.forEach((n, i) => { v[n] = base[i % base.length]; });
+    let a, b;
+    try { a = fIzq(v); b = fDer(v); } catch (e){ continue; }
+    if (!isFinite(a) || !isFinite(b)) continue;
+    const peso = Math.min(Math.abs(b), 1e6);
+    if (peso > mejor){ mejor = peso; val = v; izq = a; der = b; }
+    if (peso >= 1) break;
+  }
+  if (!val) return null;
+  const redondo = x => (Math.abs(x - Math.round(x)) < 1e-9 ? String(Math.round(x)) : x.toFixed(4)).replace(/^-/, "−");
+  return {
+    asigna: vars.map(v => v + " = " + val[v]).join(",  "),
+    izq: redondo(izq), der: redondo(der), ok: Math.abs(izq - der) < 1e-9
+  };
+}
+
+function pintaResultado(texto){
+  const r = $("salida");
+  let html = "";
+  try {
+    const res = resolver(texto);
+    const id = res.id;
+    const esDes = res.modo === "desarrollar";
+    const resultado = esDes ? res.resultado : (id ? id.resultado : null);
+
+    html += '<div class="card res">';
+    html += '<div class="res-cab">' +
+      '<span class="res-badge ' + (id ? "ok" : "neutro") + '">' +
+        (id ? esc(id.nombre) : "No corresponde a un producto notable") + '</span>' +
+      '<span class="res-modo">' + (esDes ? "Desarrollo" : "Factorización") + '</span>' +
+      '</div>';
+
+    if (id){
+      html += '<p class="res-rot">Fórmula que se aplica</p>';
+      html += '<p class="formula res-formula">' + (FORMULA_HTML[id.clave] || esc(id.formula)) + '</p>';
+      if (id.sust && id.sust.length){
+        html += '<p class="res-rot">En esta expresión</p><div class="sust">' +
+          id.sust.map(s => '<span class="sust-par"><b>' + esc(s[0]) + '</b><span>=</span>' + esc(s[1]) + '</span>').join("") +
+          '</div>';
+      }
+      if (id.pasos && id.pasos.length){
+        html += '<p class="res-rot">Paso a paso</p><table class="pasos">' +
+          id.pasos.map(p => '<tr><td>' + esc(p[0]) + '</td><td>' + esc(p[1]) + '</td></tr>').join("") +
+          '</table>';
+      }
+    } else {
+      html += '<p class="res-msg">' + (esDes
+        ? "Esta expresión no encaja en ninguno de los productos notables; se desarrolla aplicando la propiedad distributiva término a término."
+        : "Este polinomio no se factoriza con los patrones de la unidad (factor común, diferencia de cuadrados, suma o diferencia de cubos, trinomio cuadrado perfecto ni trinomio de segundo grado con raíces racionales).") +
+        '</p>';
+    }
+
+    const izqTxt = esDes ? bonito(texto) : res.entrada;
+    if (resultado){
+      html += '<div class="res-final"><span>RESULTADO</span><b>' + esc(izqTxt) + '  =  ' + esc(resultado) + '</b></div>';
+    } else {
+      html += '<div class="res-final"><span>RESULTADO</span><b>' + esc(res.entrada) +
+              (esDes ? '' : ' — queda sin factorizar') + '</b></div>';
+    }
+
+    /* En el desarrollo se compara la expresión escrita con el polinomio obtenido;
+       en la factorización, el polinomio con el producto factorizado. */
+    const vars = variablesDe(res.poly);
+    let c = null, rotIzq = "la expresión original", rotDer = "el resultado";
+    if (esDes){
+      const astIni = analiza(texto);
+      c = comprobacion(vars, v => evalAstNum(astIni, v), v => evalPoly(res.poly, v));
+    } else if (resultado){
+      const astFin = analiza(resultado);
+      c = comprobacion(vars, v => evalPoly(res.poly, v), v => evalAstNum(astFin, v));
+      rotIzq = "el polinomio"; rotDer = "el producto factorizado";
+    }
+    if (c) html += '<p class="res-comp">' + (c.ok ? "✓ " : "✗ ") + 'Comprobación con ' + esc(c.asigna) +
+      ': ' + rotIzq + ' vale <b>' + c.izq + '</b> y ' + rotDer + ' vale <b>' + c.der + '</b>.</p>';
+
+    if (id && id.pestana) html += '<div class="btns" style="margin-top:14px">' +
+      '<button class="btn" data-ir="' + id.pestana + '">Ver la demostración geométrica</button></div>';
+
+    html += '</div>';
+  } catch (e){
+    html = tarjetaError(e.message,
+      "Escriba la expresión con paréntesis y exponentes, por ejemplo <b>(2x+3)^2</b>, <b>(x+5)(x−5)</b> o <b>x^2+10x+25</b>. " +
+      "Puede usar ² y ³ directamente.");
+  }
+  r.innerHTML = html;
+  const ir = r.querySelector("[data-ir]");
+  if (ir) ir.addEventListener("click", () => {
+    const b = document.querySelector('nav.tabs button[data-go="' + ir.dataset.ir + '"]');
+    if (b) b.click();
+  });
+}
+
+$("btnResolver").addEventListener("click", () => pintaResultado($("expr").value));
+$("expr").addEventListener("keydown", e => { if (e.key === "Enter"){ e.preventDefault(); pintaResultado($("expr").value); } });
+document.querySelectorAll("#teclas button").forEach(b => b.addEventListener("click", () => {
+  const campo = $("expr");
+  if (b.dataset.k === "borrar"){ campo.value = ""; campo.focus(); return; }
+  const i = campo.selectionStart === null ? campo.value.length : campo.selectionStart;
+  const j = campo.selectionEnd === null ? campo.value.length : campo.selectionEnd;
+  campo.value = campo.value.slice(0, i) + b.dataset.k + campo.value.slice(j);
+  campo.focus();
+  const p = i + b.dataset.k.length;
+  campo.setSelectionRange(p, p);
+}));
+document.querySelectorAll("#ejemplos button").forEach(b => b.addEventListener("click", () => {
+  $("expr").value = b.textContent;
+  pintaResultado(b.textContent);
+}));
+
 
 /* ---------------- arranque ---------------- */
 function redibujarTodo(){ dib1(); dib2(); dib3(); dib4(); dib5(); }
