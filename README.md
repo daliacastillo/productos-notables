@@ -1,5 +1,8 @@
 # Productos notables · demostración geométrica interactiva
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23195334.svg)](https://doi.org/10.5281/zenodo.23195334)
+[![Licencia: CC BY-NC-SA 4.0](https://img.shields.io/badge/Licencia-CC%20BY--NC--SA%204.0-blue.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es)
+
 Actividad web interactiva para el tema **productos notables**, pensada para la unidad 2 de
 *Tópicos de Matemáticas* (Licenciatura en Matemáticas, Universidad Autónoma de Nayarit).
 
@@ -162,7 +165,7 @@ al pie, con botones para copiar la cita.
 
 > Castillo Márquez, D. I. (2026). *Productos notables: la demostración que se ve*
 > (Versión 1.1) [Material didáctico interactivo]. Universidad Autónoma de Nayarit,
-> Unidad Académica de Ciencias Básicas e Ingenierías. https://daliacastillo.github.io/productos-notables/
+> Unidad Académica de Ciencias Básicas e Ingenierías. https://doi.org/10.5281/zenodo.23195334
 
 **BibTeX**
 
@@ -174,6 +177,7 @@ al pie, con botones para copiar la cita.
   version      = {1.1},
   howpublished = {Material didáctico interactivo},
   institution  = {Universidad Autónoma de Nayarit, Unidad Académica de Ciencias Básicas e Ingenierías},
+  doi          = {10.5281/zenodo.23195334},
   url          = {https://daliacastillo.github.io/productos-notables/},
   note         = {ORCID: 0000-0002-5890-0437. Licencia CC BY-NC-SA 4.0}
 }
@@ -184,20 +188,26 @@ al pie, con botones para copiar la cita.
 > final de `index.html`. Cuando la página se sirve por HTTPS (GitHub Pages), la dirección real se
 > detecta sola y el bloque de créditos la muestra actualizada.
 
-### Obtener un DOI con Zenodo (opcional pero recomendable)
+### DOI (Zenodo)
 
-Un DOI vuelve la obra citable de forma permanente y la hace aparecer en los índices académicos.
+La obra está archivada en Zenodo, de modo que su cita es permanente aunque el repositorio cambie
+de nombre o de lugar. Hay **dos DOI** y conviene saber cuál usar:
 
-1. Entre a [zenodo.org](https://zenodo.org) e inicie sesión **con su cuenta de GitHub**.
-2. Vaya a *Settings → GitHub* y active el interruptor del repositorio `productos-notables`.
-3. En GitHub, cree una **release** (*Releases → Create a new release*), por ejemplo con la
-   etiqueta `v1.1.0` y el título `Versión 1.1`.
-4. Zenodo archiva esa release y emite un DOI en unos minutos. Copie el DOI y:
-   - descomente la línea `doi:` de `CITATION.cff` y escríbalo ahí;
-   - añádalo a la cita del bloque de créditos (constante `OBRA` en `index.html`);
-   - pegue la insignia del DOI al principio de este README.
-5. Asocie el DOI a su ORCID desde [orcid.org](https://orcid.org) → *Works → Add works → Search & link*,
-   o bien manualmente, para que la actividad aparezca en su perfil.
+| DOI | Qué identifica | Cuándo usarlo |
+|---|---|---|
+| [10.5281/zenodo.23195334](https://doi.org/10.5281/zenodo.23195334) | Todas las versiones (*concept DOI*) | **El de uso general.** Siempre resuelve a la versión más reciente; es el que va en la cita, en la insignia y en el currículum |
+| [10.5281/zenodo.23195335](https://doi.org/10.5281/zenodo.23195335) | Sólo la versión 1.1.0 | Cuando haga falta citar exactamente la versión que se usó, por ejemplo en un artículo que reporte resultados obtenidos con ella |
+
+Zenodo toma la autoría, el resumen, las palabras clave y la licencia del archivo `CITATION.cff`,
+así que ese archivo es la fuente de la que depende la calidad del registro.
+
+**Para publicar una versión nueva** basta crear otra *release* en GitHub (por ejemplo `v1.2.0`):
+Zenodo la archiva sola, emite un DOI de versión nuevo y el DOI de concepto pasa a apuntar a ella.
+Antes de hacerlo conviene actualizar `version:` y `date-released:` en `CITATION.cff`.
+
+**Enlazarlo al perfil ORCID:** en [orcid.org](https://orcid.org) → *Works → Add works → Search & link*,
+elija **DataCite** y busque el DOI; o bien *Add manually* pegando el DOI. Zenodo también puede
+hacerlo solo si en su perfil de Zenodo está conectada la cuenta ORCID.
 
 ## Metadatos incluidos
 
@@ -205,13 +215,16 @@ Un DOI vuelve la obra citable de forma permanente y la hace aparecer en los índ
 - Etiquetas `citation_*` y `DC.*` en el `<head>` — las usan Google Académico y los recolectores
   de repositorios institucionales.
 - `JSON-LD` con `schema.org/LearningResource` — describe la obra como recurso educativo:
-  autoría, ORCID, afiliación, nivel educativo, licencia y versión.
+  autoría, ORCID, afiliación, nivel educativo, licencia, versión y DOI.
+- Etiqueta `citation_doi` y `DC.identifier` en el `<head>`, y el DOI visible en el bloque de
+  créditos de la propia actividad.
 
 ## Créditos y licencia
 
 Dra. Dalia Imelda Castillo Márquez · Docente investigadora
 ORCID: [0000-0002-5890-0437](https://orcid.org/0000-0002-5890-0437)
 Universidad Autónoma de Nayarit · Unidad Académica de Ciencias Básicas e Ingenierías
+DOI: [10.5281/zenodo.23195334](https://doi.org/10.5281/zenodo.23195334)
 
 Versión 1.1 · octubre de 2026
 
